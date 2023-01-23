@@ -2,14 +2,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgb(255, 255, 255); display: block; z-index: 1; position: relative; shape-rendering: auto;" width="500" height="350" preserveAspectRatio="xMidYMid" viewBox="0 0 500 350">
 <g transform="translate(250,175) scale(1,1) translate(-250,-175)"><defs>
 <linearGradient id="lg-0.17064652333029828" x1="0" x2="0" y1="0" y2="1">
-  <stop stop-color="#890c46" offset="0.3"></stop>
-  <stop stop-color="#3c0226" offset="0.6499999999999999"></stop>
-  <stop stop-color="#3c0226" offset="1"></stop>
+  <stop stop-color="#29075c" offset="0.3"></stop>
+  <stop stop-color="#1e0542" offset="0.6499999999999999"></stop>
+  <stop stop-color="#120329" offset="1"></stop>
 </linearGradient>
 <linearGradient id="fg-lg-0.17064652333029828" x1="0" x2="0" y1="0" y2="1">
-  <stop stop-color="#890c46" stop-opacity="1" offset="0.3"></stop>
-  <stop stop-color="#3c0226" stop-opacity="0.66" offset="0.6499999999999999"></stop>
-  <stop stop-color="#3c0226" stop-opacity="0" offset="1"></stop>
+  <stop stop-color="#29075c" stop-opacity="1" offset="0.3"></stop>
+  <stop stop-color="#1e0542" stop-opacity="0.66" offset="0.6499999999999999"></stop>
+  <stop stop-color="#120329" stop-opacity="0" offset="1"></stop>
 </linearGradient>
 <style type="text/css">
   path { fill: none; stroke: #00ffff; stroke-width: 1px }

@@ -2,6 +2,32 @@ body {
     padding: 0;
     overflow-x:hidden;
 
-    background-image: url(..\images\background.jpg);
+    background-image: url(../img/background-light.svg);
+    background-position: center;
     background-size: cover;
+    background-attachment: fixed;
+}
+
+img.card-img-top {
+    height: 200px; 
+    object-fit: cover;
+}
+
+.card {
+    margin: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.538);
+    border: 0;
+   
+}
+
+a {
+    color: #fff;
+}
+
+div h5 img {
+    height: 40px !important;
+}
+
+.card-body button {
+    color: aliceblue;
 }

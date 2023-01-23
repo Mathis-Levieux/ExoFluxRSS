@@ -8,16 +8,27 @@ body {
     background-attachment: fixed;
 }
 
-.col-sm-2 img {
+img.card-img-top {
     height: 200px; 
+    filter: grayscale(50%);
+    object-fit: cover;
 }
 
 .card {
+    margin: 1.5rem;
     background-color: rgba(0, 0, 0, 0.538);
-    height: 200px !important;
+    border: 0;
+   
 }
 
 a {
     color: #fff;
 }
 
+div h5 img {
+    height: 40px !important;
+}
+
+.card-body button {
+    color: aliceblue;
+}
