@@ -17,7 +17,6 @@ require('../controllers/home-controller.php');
 
 <body>
 
-    <rss xmlns:dc="https://www.jeuxactu.com/rss/ps4.rss" version="2.0"></rss>
 
 
 
