@@ -1,11 +1,11 @@
 <?php
 
-// images pour chaque console
-$playstation = "https://w0.peakpx.com/wallpaper/342/1021/HD-wallpaper-sony-logo-playstation.jpg";
-$xbox = "https://wallpapercave.com/wp/wp10502006.jpg";
-$switch = "http://i.imgur.com/61EZYqD.png";
-$pc = "https://img.lovepik.com/background/20211030/medium/lovepik-computer-circuit-background-mobile-phone-wallpaper-image_400482049.jpg";
-$mobile = "https://w0.peakpx.com/wallpaper/456/555/HD-wallpaper-cool-color-design-designs-flat-material-mobile.jpg";
+// logo pour $console
+$playstation = "../assets/img/playstation.png"; 
+$xbox = "../assets/img/xbox.png";
+$switch = "../assets/img/switch.png";
+$pc = "../assets/img/computer.png";
+$mobile = "../assets/img/mobile.png";
 
 
 function getRssArticles($rsslink) // Fonction qui prend en paramètre l'URL du flux RSS et qui retourne un tableau d'articles
@@ -18,6 +18,7 @@ function getRssArticles($rsslink) // Fonction qui prend en paramètre l'URL du f
             'link' => $item->link,
             'description' => $item->description,
             'date' => $item->children('dc', true)->date,
+            'image' => $item->enclosure['url'],
         ];
     }
     return $articlesArray; // On retourne le tableau d'articles
@@ -38,25 +39,38 @@ function sortArticlesByDate($console) // Fonction qui trie les articles par date
         // récupérer la date <dc:date>
         $date = $article['date'];
         $date = date('d/m/Y', strtotime($date));
+        // récupérer le premier mot de $item->title
+        $first_word = explode(' ', $article['title'])[0];
+        
         echo '
-        <div class="row">
-         <div class="col-sm-12">
-            <div class="card m-3 rounded " >
-                <div class="row g-0">
-                    <div class="col-sm-2">
-                   <img src="' . $console . '" class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-sm-10">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="' . $article['link'] . '" target="_blank">' . $article['title'] . '</a></h5>
-                            <p class="card-text text-light mb-0">' . $article['description'] . '</p>
-                            <p class="card-text"><small class="text-secondary">' . $date . '</small></p>
-                        </div>
-                    </div>
-                </div>
+        <div class="card mb-3" data-bs-toggle="modal" data-bs-target="#' . $first_word . '">
+            <img src="'.$article['image'].'" class="card-img-top" alt="photo article">
+            <div class="card-body">
+                <h5 class="card-title text-light"><img src="'.$console.'" alt="logo">
+                ' .$article['title']. '
+                </h5>
+                <p class="card-text">
+                    <small class="text-secondary">' . $date . '</small>
+                </p>  
             </div>
-         </div>
         </div>
-            ';
+
+        <div class="modal fade" id="' . $first_word . '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="' . $first_word . '"><img src="'.$console.'" alt="logo">' .$article['title']. '</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              '.$article['description'].'
+            </div>
+            <div class="modal-footer">
+              <button href="'.$article['link'].'"type="button" class="btn btn-primary">en savoir plus</button>
+            </div>
+          </div>
+        </div>
+      </div>
+         ';
     }
 }

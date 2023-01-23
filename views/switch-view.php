@@ -19,7 +19,7 @@ require('../controllers/switch-controller.php');
 
 
 
-<?php rss_reader('https://www.jeuxactu.com/rss/switch.rss', $switch) ?>
+<?php sortArticlesByDate($switch) ?>
 
 
 
