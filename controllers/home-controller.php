@@ -22,7 +22,7 @@ function rss_reader($rss_feed, $console)
     echo '
     <div class="row">
      <div class="col-sm-12">
-        <div class="card m-3 rounded" >
+        <div class="card m-3 rounded " >
             <div class="row g-0">
                 <div class="col-sm-2">
                     <img src="'.$console.'" class="img-fluid rounded-start" alt="...">
@@ -30,7 +30,7 @@ function rss_reader($rss_feed, $console)
                 <div class="col-sm-10">
                     <div class="card-body">
                         <h5 class="card-title"><a href="' . $item->link . '" target="_blank">' . $item->title . '</a></h5>
-                        <p class="card-text text-light">' . $item->description . '</p>
+                        <p class="card-text text-light mb-0">' . $item->description . '</p>
                         <p class="card-text"><small class="text-secondary">' . $date . '</small></p>
                     </div>
                 </div>
