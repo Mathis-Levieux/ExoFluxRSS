@@ -16,7 +16,9 @@ require('../controllers/switch-controller.php');
 </head>
 
 <body>
-
+<header>
+    <?php require('components/header.php') ?>
+</header>
 
 
 <?php sortArticlesByDate($switch) ?>

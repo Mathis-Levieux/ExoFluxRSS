@@ -42,7 +42,7 @@ function rss_reader($rss_feed, $console) // Fonction qui prend en paramètre l'U
         <div class="modal fade" id="' . $first_word . '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header p-0">
               <h1 class="modal-title fs-5" id="' . $first_word . '"><img src="'.$console.'" alt="logo">' . $item->title . '</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
