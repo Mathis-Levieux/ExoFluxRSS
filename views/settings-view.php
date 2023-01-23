@@ -55,11 +55,38 @@ require('../controllers/settings-controller.php');
                         ?> type="radio" id="dark" name="theme" value="dark">
                 <label for="dark">Sombre</label>
             </div>
+        </fieldset>
+        <fieldset class="consolepicker">
+            <legend>Choisis tes consoles</legend>
             <div>
-                <input class="cookieinput" type="submit" value="Enregistrer">
+                <input type="checkbox" id="ps4" name="consolepref[]" value="ps4">
+                <label for="ps4">Playstation 4</label>
+                <input type="checkbox" id="ps5" name="consolepref[]" value="ps5">
+                <label for="ps5">Playstation 5</label>
+                <input type="checkbox" id="xboxone" name="consolepref[]" value="xboxone">
+                <label for="xboxone">Xbox One</label>
+                <input type="checkbox" id="xboxseriesx" name="consolepref[]" value="xboxseriesx">
+                <label for="xboxseriesx">Xbox Series X</label>
+                <input type="checkbox" id="switch" name="consolepref[]" value="switch">
+                <label for="switch">Nintendo Switch</label>
+                <input type="checkbox" id="pc" name="consolepref[]" value="pc">
+                <label for="pc">PC</label>
+                <input type="checkbox" id="mobile" name="consolepref[]" value="mobile">
+                <label for="mobile">Mobile</label>
+
             </div>
         </fieldset>
+
+        <div>
+            <input type="submit" value="Enregistrer">
+        </div>
+        </fieldset>
         </form>
+
+
+
+
+
     </main>
 
 
