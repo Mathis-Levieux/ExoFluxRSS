@@ -1,6 +1,5 @@
 <?php
-require('../controllers/settings-controller.php');
-require('../controllers/rss_reader-controller.php');
+require('../controllers/ps-controller.php');
 ?>
 
 <!DOCTYPE html>
@@ -18,8 +17,11 @@ require('../controllers/rss_reader-controller.php');
 
 <body>
 
+<?php 
 
-    <p><?php getArticlesInArray() ?> </p>
+        displayPreferencesArticles();
+    
+?>
 
 
 
