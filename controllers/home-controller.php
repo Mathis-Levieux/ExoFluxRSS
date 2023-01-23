@@ -1,4 +1,5 @@
 <?php
+session_start();
 function rss_reader($rss_feed, $console)
 {
     $rss = simplexml_load_file($rss_feed);
@@ -11,7 +12,7 @@ function rss_reader($rss_feed, $console)
     echo '
     <div class="row">
      <div class="col-sm-12">
-        <div class="card m-3 rounded" >
+        <div class="card m-3 rounded" >gi
             <div class="row g-0">
                 <div class="col-sm-2">
                     <img src="'.$console.'" class="img-fluid rounded-start" alt="...">

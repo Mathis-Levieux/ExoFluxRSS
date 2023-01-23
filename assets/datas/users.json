@@ -1,0 +1,12 @@
+{
+    "users": [
+        {
+            "password": "$2y$10$i62lQdZ10FcvJgiRUjyLZ.gji0wcCMr3rLY.WFfSuJYwC36MCdpbK",
+            "nickname": "MarieSo"
+        },
+        {
+            "password": "$2y$10$CgWENoBSkB/lsaOt6JEEbOYl7JT4QLplTbO3yUfDSXz2o6LAUPXKi",
+            "nickname": "Mathis"
+        }
+    ]
+}
