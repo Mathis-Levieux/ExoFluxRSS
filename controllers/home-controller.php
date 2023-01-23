@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 function rss_reader($rss_feed)
 {
