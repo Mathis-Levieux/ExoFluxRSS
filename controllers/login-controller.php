@@ -1,22 +1,20 @@
 <?php
-session_start();
-
-
-
-// Déconnexion
-if (isset($_GET['logout'])) {
-    session_destroy();
-    $disconnected = true;
-}
+session_start(); // On démarre la session
 
 
 // Cookie thème
-if (isset($_COOKIE['theme'])) {
-    $theme = $_COOKIE['theme'];
+if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme'])) {
+    $theme = $_COOKIE[$_SESSION['user']['nickname'] . 'theme'];
 } else {
     $theme = 'light';
 }
 
+// Cookie thème
+if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme'])) {
+    $theme = $_COOKIE[$_SESSION['user']['nickname'] . 'theme'];
+} else {
+    $theme = 'light';
+}
 
 
 // Récupération du JSON des utilisateurs, et décodage en tableau PHP

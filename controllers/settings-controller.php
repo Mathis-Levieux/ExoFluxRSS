@@ -1,6 +1,8 @@
 <?php
 
-session_start();
+session_start(); // On démarre la session
+
+
 if (!isset($_SESSION['user'])) {
     header('Location: login-view.php');
 }

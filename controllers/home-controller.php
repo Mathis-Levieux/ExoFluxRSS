@@ -1,5 +1,15 @@
 <?php
-session_start();
+
+session_start(); // On démarre la session
+
+
+// Cookie thème
+if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme'])) {
+    $theme = $_COOKIE[$_SESSION['user']['nickname'] . 'theme'];
+} else {
+    $theme = 'light';
+}
+
 function rss_reader($rss_feed, $console)
 {
     $rss = simplexml_load_file($rss_feed);
