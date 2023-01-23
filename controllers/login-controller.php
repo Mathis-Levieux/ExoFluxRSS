@@ -2,19 +2,6 @@
 session_start(); // On démarre la session
 
 
-// Cookie thème
-if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme'])) {
-    $theme = $_COOKIE[$_SESSION['user']['nickname'] . 'theme'];
-} else {
-    $theme = 'light';
-}
-
-// Cookie thème
-if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme'])) {
-    $theme = $_COOKIE[$_SESSION['user']['nickname'] . 'theme'];
-} else {
-    $theme = 'light';
-}
 
 
 // Récupération du JSON des utilisateurs, et décodage en tableau PHP
@@ -24,6 +11,17 @@ $usersArray = json_decode($data, true);
 $users = $usersArray['users'];
 
 $arrayErrors = []; // Tableau d'erreurs
+
+
+// Cookie thème
+if (isset($_SESSION['user'])) {
+    if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme'])) {
+        $theme = $_COOKIE[$_SESSION['user']['nickname'] . 'theme'];
+    }
+} else {
+    $theme = 'light';
+}
+
 
 // Si le formulaire est envoyé, on vérifie les champs
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -62,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $arrayErrors['password'] = "Mot de passe incorrect";
                 }
             }
-           // Si le tableau d'erreur est toujours vide, c'est que le pseudo est incorrect
+            // Si le tableau d'erreur est toujours vide, c'est que le pseudo est incorrect
             else if (empty($arrayErrors)) {
                 $arrayErrors['nickname'] = "Ce pseudo n'existe pas";
             }
