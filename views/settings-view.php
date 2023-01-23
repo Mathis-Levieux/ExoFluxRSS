@@ -28,12 +28,31 @@ require('../controllers/settings-controller.php');
             <legend>Choisis ton thème</legend>
 
             <div>
-                <input <?= isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme']) && $_COOKIE[$_SESSION['user']['nickname'] . 'theme'] === "light" ? 'checked' : "" ?> type="radio" id="light" name="theme" value="light">
+                <input <?php
+                        if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme']) && ($_COOKIE[$_SESSION['user']['nickname'] . 'theme'] == "light")) {
+                            echo 'checked';
+                        } else if (isset($_POST['theme']) && ($_POST['theme'] === 'light')) {
+                            echo 'checked';
+                        } else {
+                            echo '';
+                        }
+
+
+                        ?> type="radio" id="light" name="theme" value="light">
                 <label for="light">Basique</label>
             </div>
 
             <div>
-                <input <?= isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme']) && $_COOKIE[$_SESSION['user']['nickname'] . 'theme'] === "dark" ? 'checked' : "" ?> type="radio" id="dark" name="theme" value="dark">
+                <input <?php
+                        if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme']) && ($_COOKIE[$_SESSION['user']['nickname'] . 'theme'] == "dark")) {
+                            echo 'checked';
+                        } else if (isset($_POST['theme']) && ($_POST['theme'] === 'dark')) {
+                            echo 'checked';
+                        } else {
+                            echo '';
+                        }
+
+                        ?> type="radio" id="dark" name="theme" value="dark">
                 <label for="dark">Sombre</label>
             </div>
             <div>

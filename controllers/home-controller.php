@@ -10,7 +10,7 @@ if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme'])) {
     $theme = 'light';
 }
 
-function rss_reader($rss_feed, $console)
+function rss_reader($rss_feed, $console) // Fonction qui prend en paramètre l'URL du flux RSS et l'image de la console
 {
     $rss = simplexml_load_file($rss_feed);
 
@@ -41,7 +41,6 @@ function rss_reader($rss_feed, $console)
         ';
     }
 
-    return $rss_feed;
 }
 
 // images pour $console
