@@ -1,5 +1,6 @@
 <?php
-require('../controllers/ps-controller.php');
+require('../controllers/settings-controller.php');
+require('../controllers/rss_reader-controller.php');
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +19,7 @@ require('../controllers/ps-controller.php');
 <body>
 
 
-<?php sortArticlesByDate($playstation); ?>
+    <p><?php getArticlesInArray() ?> </p>
 
 
 

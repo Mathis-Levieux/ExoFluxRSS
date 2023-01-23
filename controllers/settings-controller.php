@@ -18,3 +18,14 @@ if (isset($_POST['theme'])) { // Si on détecte la méthode POST pour l'input "t
 } else {
     $theme = 'light'; // Sinon, le thème sera par défaut "light"
 }
+
+// Récupération des choix de l'utilisateur
+if (isset($_POST['consolepref'])) {
+    $consolepref = $_POST['consolepref'];
+    // Stockage des choix dans un cookie
+    setcookie($_SESSION['user']['nickname'] . 'consolepref', json_encode($consolepref), time() + (86400 * 30), "/");
+    header('Location: settings-view.php');
+} elseif (isset($_COOKIE[$_SESSION['user']['nickname'] . 'consolepref'])) {
+    // Récupération des choix stockés dans le cookie
+    $consolepref = json_decode($_COOKIE[$_SESSION['user']['nickname'] . 'consolepref'], true);
+}
