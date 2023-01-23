@@ -1,0 +1,21 @@
+body {
+    padding: 0;
+    overflow-x:hidden;
+
+    background-image: url(../img/background-neutral.svg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.col-sm-2 img {
+    height: 100%; 
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.538);
+}
+
+a {
+    color: #fff;
+}
