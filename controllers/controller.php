@@ -2,8 +2,21 @@
 function checkProfil()
 {
     if (isset($_SESSION['user'])) {
-        echo '<a href="home-view.php" type="button" class="btn"><img src="https://img.icons8.com/fluency-systems-filled/40/FFFFFF/home.png"/></a>';
+        echo '
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://img.icons8.com/external-smashingstocks-glyph-smashing-stocks/40/FFFFFF/external-profile-web-smashingstocks-glyph-smashing-stocks.png"/>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="../views/settings-view.php"><i class="bi bi-gear"></i> Settings</a></li>
+            <li><a class="dropdown-item" href="?logout" name="logout" ><i class="bi bi-x-circle"></i> Déconnection</a></li>
+        </ul>
+        
+        ';
     } else {
-        echo '<a href="login-view.php" type="button" class="btn"><img src="https://img.icons8.com/fluency-systems-filled/40/FFFFFF/shutdown.png"/></a>';
+        echo '<a href="login-view.php" type="button" class="btn"><img src="https://img.icons8.com/pastel-glyph/40/FFFFFF/shutdown--v4.png"/></a>';
+    }
+
+    if (isset($_GET['logout'])) {
+        session_destroy();
     }
 }

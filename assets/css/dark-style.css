@@ -51,9 +51,21 @@ nav.navbar  {
     background-color: rgba(0, 0, 0, 0.538);
     
 }
+ul.dropdown-menu.show {
+    background-color: rgba(0, 0, 0, 0.806) !important;
+}
+
+a.dropdown-item {
+    color: aliceblue !important;
+}
+a.dropdown-item:hover {
+    color: aliceblue !important;
+    background-color: rgba(80, 25, 117, 0.806) !important;
+
+}
 
 .navbar-brand {
-font-weight: bold;
+    font-weight: bold;
     color: aliceblue;
 }
 

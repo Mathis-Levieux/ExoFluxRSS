@@ -16,7 +16,9 @@ require('../controllers/settings-controller.php');
 </head>
 
 <body>
-
+<header>
+<?php include('components/header.php') ?>
+</header>
     <main class="justify-content-center container">
         <div class="profil-container">
             <ul>
