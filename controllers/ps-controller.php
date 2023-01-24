@@ -7,6 +7,12 @@ if (isset($_SESSION['user'])) {
     } else {
         $theme = 'light';
     }
+} else if (!isset($_SESSION['user'])) {
+    if (isset($_COOKIE['theme'])) {
+        $theme = $_COOKIE['theme'];
+    } else {
+        $theme = 'light';
+    }
 }
 
 require('rss_reader-controller.php');
