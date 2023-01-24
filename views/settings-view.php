@@ -63,10 +63,8 @@ require('../controllers/settings-controller.php');
                 <label for="ps4">Playstation 4</label>
                 <input type="checkbox" id="ps5" name="consolepref[]" value="ps5">
                 <label for="ps5">Playstation 5</label>
-                <input type="checkbox" id="xboxone" name="consolepref[]" value="xboxone">
-                <label for="xboxone">Xbox One</label>
-                <input type="checkbox" id="xboxseriesx" name="consolepref[]" value="xboxseriesx">
-                <label for="xboxseriesx">Xbox Series X</label>
+                <input type="checkbox" id="xbox" name="consolepref[]" value="xbox">
+                <label for="xbox">Xbox</label>
                 <input type="checkbox" id="switch" name="consolepref[]" value="switch">
                 <label for="switch">Nintendo Switch</label>
                 <input type="checkbox" id="pc" name="consolepref[]" value="pc">
