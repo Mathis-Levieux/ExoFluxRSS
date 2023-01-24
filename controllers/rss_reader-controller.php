@@ -120,8 +120,8 @@ function displayPreferencesArticles()
                 <p class="card-text text-light">
                     ' . $subtitle . '
                 </p>
-                <p class="card-text">
-                    <small class="text-secondary">' . $date . '</small>
+                <p class="card-text text-end">
+                    <small class="text-info">' . $date . '</small>
                 </p>  
             </div>
         </div>
@@ -139,7 +139,7 @@ function displayPreferencesArticles()
             <p class="p-2">' . $article['description'] . '</p>
             </div>
             <div class="modal-footer">
-              <button href="' . $article['link'] . '"type="button" class="btn btn-primary">en savoir plus</button>
+              <a href="' . $article['link'] . '" type="button" class="btn btn-primary">en savoir plus</a>
             </div>
           </div>
         </div>

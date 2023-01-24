@@ -3,9 +3,9 @@ require ("../controllers/controller.php");
 ?>
 <nav class="navbar sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="home-view.php">
       <img src="../assets/img/logo-Light.png" alt="Logo">
-      GameScope
+      GAMESCOPE
     </a>
     <?php
     checkProfil();

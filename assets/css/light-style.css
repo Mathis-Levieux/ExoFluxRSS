@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 body {
     padding: 0;
     overflow-x:hidden;
@@ -8,22 +9,19 @@ body {
     background-attachment: fixed;
 }
 
-img.card-img-top {
-    height: 200px; 
-    object-fit: cover;
-}
-
+/* CARD */
 .card {
     margin: 1.5rem;
-    background-color: rgba(0, 0, 0, 0.538);
-    border: 0;
-   
+    background-color: rgba(105, 59, 131, 0.538);
+    border: 0;  
 }
-
+img.card-img-top {
+    height: 150px; 
+    object-fit: cover;
+}
 a {
     color: #fff;
 }
-
 div h5 img {
     height: 40px !important;
 }
@@ -31,38 +29,59 @@ div h5 img {
 .card-body button {
     color: aliceblue;
 }
-
-.card-body button {
-    color: aliceblue;
-}
-
 .img-fluid {
     width: 100%;
 }
 
+/* MODAL */
 .modal-header {
     padding-bottom: 0;
     padding-top: 0;
 }
-
 p {
     text-align: justify;
     text-justify: auto;
 }
 
+/* HEADER */
 nav.navbar  {
-    background-color: rgba(0, 0, 0, 0.538);
-    
+    font-family: 'Press Start 2P', cursive;        
+    background-color: rgba(105, 59, 131, 0.538);
+    padding: 0;
 }
-
+ul.dropdown-menu.show {
+    background-color: rgba(105, 59, 131, 0.796);
+}
+a.dropdown-item {
+    color: aliceblue !important;
+}
+a.dropdown-item:hover {
+    color: aliceblue !important;
+    background-color: rgba(80, 25, 117, 0.806) !important;
+}
 .navbar-brand {
-font-weight: bold;
+    font-weight: bold;
     color: aliceblue;
 }
-
 nav button.btn {
 color: aliceblue !important;
 padding: 0;
 height: 40px;
+}
+
+/* FOOTER */
+nav.navbar.fixed-bottom {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color:#8c58dae9 !important;
+}
+nav.navbar.fixed-bottom div.container-fluid{
+    justify-content: space-between;
+}
+nav.navbar.fixed-bottom a.navbar-brand{
+    margin: 0;
+}
+nav.navbar.fixed-bottom a img{
+ height: 30px;
 }
 
