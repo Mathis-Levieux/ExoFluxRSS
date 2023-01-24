@@ -1,4 +1,5 @@
 <?php
+require('rss_reader-controller.php');
 
 session_start(); // On démarre la session
 
@@ -9,6 +10,8 @@ if (isset($_SESSION['user'])) {
   } else {
       $theme = 'light';
   }
+} else {
+  $theme = 'light';
 }
 
 function rss_reader($rss_feed, $console) // Fonction qui prend en paramètre l'URL du flux RSS et l'image de la console
@@ -68,5 +71,4 @@ $pc = "../assets/img/computer.png";
 $mobile = "../assets/img/mobile.png";
 
 
-var_dump(rss_reader('https://www.jeuxactu.com/rss/switch.rss', $switch));
 

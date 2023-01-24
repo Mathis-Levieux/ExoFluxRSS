@@ -22,6 +22,7 @@ require('../controllers/home-controller.php');
 
 
 
+<?php displayPreferencesArticles(); ?>
 
 
 

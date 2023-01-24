@@ -1,5 +1,5 @@
 <?php
-require('../controllers/ps-controller.php');
+require('../controllers/pages-controller.php');
 ?>
 
 <!DOCTYPE html>

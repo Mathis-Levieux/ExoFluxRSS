@@ -20,6 +20,8 @@ if (isset($_SESSION['user'])) {
     } else {
         $theme = 'light';
     }
+} else {
+    $theme = 'light';
 }
 
 

@@ -1,4 +1,8 @@
-<?php session_start(); // On démarre la session
+<?php 
+require('rss_reader-controller.php');
+
+
+session_start(); // On démarre la session
 
 // Cookie thème
 if (isset($_SESSION['user'])) {
@@ -7,12 +11,6 @@ if (isset($_SESSION['user'])) {
     } else {
         $theme = 'light';
     }
-} else if (!isset($_SESSION['user'])) {
-    if (isset($_COOKIE['theme'])) {
-        $theme = $_COOKIE['theme'];
-    } else {
-        $theme = 'light';
-    }
+} else {
+    $theme = 'light';
 }
-
-require('rss_reader-controller.php');
