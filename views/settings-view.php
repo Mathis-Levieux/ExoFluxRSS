@@ -16,9 +16,9 @@ require('../controllers/settings-controller.php');
 </head>
 
 <body>
-<header>
-<?php include('components/header.php') ?>
-</header>
+    <header>
+        <?php include('components/header.php') ?>
+    </header>
     <main class="justify-content-center container">
         <div class="profil-container">
             <ul>
@@ -81,7 +81,7 @@ require('../controllers/settings-controller.php');
             <legend>Choisis le nombre d'articles par page</legend>
             <div>
                 <label for="nbarticles">Nombre d'articles par page</label>
-                <select>
+                <select name="nbarticles">
                     <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="15">15</option>

@@ -12,6 +12,7 @@ function getRssArticles($rsslink, $console) // Fonction qui prend en paramètre 
 {
     $rss = simplexml_load_file($rsslink); // On charge le flux RSS
     $articlesArray = []; // On crée un tableau vide
+
     foreach ($rss->channel->item as $item) { // On parcourt les articles du flux RSS et on les ajoute au tableau
         $articlesArray[] = [
             'title' => $item->title,
@@ -88,7 +89,10 @@ function getArticlesInArray()
 
 function displayPreferencesArticles()
 {
-    $allArticles = getArticlesInArray(); // Récupère le tableau d'articles
+    $allArticles = getArticlesInArray();
+    $allArticles = deleteDuplicate($allArticles);
+    $allArticles = array_slice($allArticles, 0, getUserNbArticleCookie()); // Récupère les articles dans un tableau et supprime les articles en trop
+
     // foreach de $allarticles
     foreach ($allArticles as $article) {
 
@@ -101,12 +105,11 @@ function displayPreferencesArticles()
 
         // diviser le title en Title et subtitle
         $Title = explode(':', $article['title'])[0];
-        $subtitle = explode(':', $article['title'])[1];
+        @$subtitle = explode(':', $article['title'])[1];
 
         // Récupèrer l'image de la console
         $console = $article['console'];
         $consoleimage = "../assets/img/$console.png";
-
         echo '
         <div class="card mb-3" data-bs-toggle="modal" data-bs-target="#' . $first_word . '">
             <img src="' . $article['image'] . '" class="card-img-top" alt="photo article">
@@ -146,3 +149,29 @@ function displayPreferencesArticles()
 }
 
 
+
+function getUserNbArticleCookie()
+{
+    if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles'])) {
+        return $_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles'];;
+    } else {
+        return 12;
+    }
+}
+
+
+function deleteDuplicate($array)
+{
+    $titles = array();
+    foreach ($array as $key => $value) {
+        $titles[] = $value['title'];
+    }
+    $titles = array_unique($titles);
+
+    foreach ($array as $key => $value) {
+        if (!in_array($value['title'], $titles)) {
+            unset($array[$key]);
+        }
+    }
+    return $array;
+}
