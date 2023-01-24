@@ -64,6 +64,15 @@ function getArticlesInArray()
                 return strtotime($b['date']) - strtotime($a['date']);
             });
             return $allArticles; // Retourne le tableau d'articles trié
+        } else {
+            $ps5Articles = getRssArticles('https://www.jeuxactu.com/rss/ps5.rss', 'playstation');
+            $xboxArticles = getRssArticles('https://www.jeuxactu.com/rss/xbox-series-x.rss', 'xbox');
+            $switchArticles = getRssArticles('https://www.jeuxactu.com/rss/switch.rss', 'switch');
+            $allArticles = array_merge($allArticles, $ps5Articles, $xboxArticles, $switchArticles);
+            usort($allArticles, function ($a, $b) { // Trie les articles par date
+                return strtotime($b['date']) - strtotime($a['date']);
+            });
+            return $allArticles; // Retourne le tableau d'articles trié
         }
     } else { // Si l'utilisateur n'est pas connecté, on récupère tous les articles
         $ps5Articles = getRssArticles('https://www.jeuxactu.com/rss/ps5.rss', 'playstation');
