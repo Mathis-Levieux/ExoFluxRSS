@@ -31,3 +31,38 @@ div h5 img {
 .card-body button {
     color: aliceblue;
 }
+
+.card-body button {
+    color: aliceblue;
+}
+
+.img-fluid {
+    width: 100%;
+}
+
+.modal-header {
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+p {
+    text-align: justify;
+    text-justify: auto;
+}
+
+nav.navbar  {
+    background-color: rgba(0, 0, 0, 0.538);
+    
+}
+
+.navbar-brand {
+font-weight: bold;
+    color: aliceblue;
+}
+
+nav button.btn {
+color: aliceblue !important;
+padding: 0;
+height: 40px;
+}
+
