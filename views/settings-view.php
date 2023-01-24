@@ -75,9 +75,21 @@ require('../controllers/settings-controller.php');
             </div>
         </fieldset>
 
-        <div>
-            <input type="submit" value="Enregistrer">
-        </div>
+        <fieldset class="nbarticles">
+            <legend>Choisis le nombre d'articles par page</legend>
+            <div>
+                <label for="nbarticles">Nombre d'articles par page</label>
+                <select>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+
+            <div>
+                <input type="submit" value="Enregistrer">
+            </div>
         </fieldset>
         </form>
 
