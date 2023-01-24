@@ -47,9 +47,13 @@ p {
     text-justify: auto;
 }
 
-nav.navbar, .navbar-brand {
+nav.navbar  {
     background-color: rgba(0, 0, 0, 0.538);
-    font-weight: bold;
+    
+}
+
+.navbar-brand {
+font-weight: bold;
     color: aliceblue;
 }
 
