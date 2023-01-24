@@ -175,3 +175,64 @@ function deleteDuplicate($array)
     }
     return $array;
 }
+
+function displayOnlyOnePage($console, $imgconsole)
+{
+    $consoleArticles = getRssArticles('https://www.jeuxactu.com/rss/' . $console . '.rss', $imgconsole);
+    // Trie les articles par date
+    usort($consoleArticles, function ($a, $b) {
+        return strtotime($b['date']) - strtotime($a['date']);
+    });
+    foreach ($consoleArticles as $article) {
+
+        // récupérer la date <dc:date>
+        $date = $article['date'];
+        $date = date('d/m/Y', strtotime($date));
+
+        // récupérer le premier mot de $item->title (id de la modal)
+        $first_word = explode(' ', $article['title'])[0];
+
+        // diviser le title en Title et subtitle
+        $Title = explode(':', $article['title'])[0];
+        @$subtitle = explode(':', $article['title'])[1];
+
+        // Récupèrer l'image de la console
+        $console = $article['console'];
+        $consoleimage = "../assets/img/$console.png";
+        echo '
+        <div class="card mb-3" data-bs-toggle="modal" data-bs-target="#' . $first_word . '">
+            <img src="' . $article['image'] . '" class="card-img-top" alt="photo article">
+            <div class="card-body">
+                <h5 class="card-title text-light"><img src="' . $consoleimage . '" alt="logo">
+                ' . $Title . '
+                </h5>
+                <p class="card-text text-light">
+                    ' . $subtitle . '
+                </p>
+                <p class="card-text text-end">
+                    <small class="text-info">' . $date . '</small>
+                </p>  
+            </div>
+        </div>
+
+        <div class="modal fade" id="' . $first_word . '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="' . $first_word . '"><img src="' . $consoleimage . '" alt="logo">' . $Title . '</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+            <img class="img-fluid " src="' . $article['image'] . '" alt="photo article">
+            <h5 class="p-2"> ' . $subtitle . '</h5>
+            <p class="p-2">' . $article['description'] . '</p>
+            </div>
+            <div class="modal-footer">
+              <a href="' . $article['link'] . '" type="button" class="btn btn-primary">en savoir plus</a>
+            </div>
+          </div>
+        </div>
+      </div>
+         ';
+    }
+}
