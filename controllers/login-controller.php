@@ -2,8 +2,6 @@
 session_start(); // On démarre la session
 
 
-
-
 // Récupération du JSON des utilisateurs, et décodage en tableau PHP
 $file = '../assets/datas/users.json';
 $data = file_get_contents($file);
@@ -11,6 +9,7 @@ $usersArray = json_decode($data, true);
 $users = $usersArray['users'];
 
 $arrayErrors = []; // Tableau d'erreurs
+
 
 
 // Cookie thème

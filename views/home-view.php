@@ -17,7 +17,7 @@ require('../controllers/home-controller.php');
 
 <body>
 <header>
-    <?php require('components/header.php') ?>
+    <?php include('components/header.php') ?>
 </header>
 
 
