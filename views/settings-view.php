@@ -1,5 +1,6 @@
 <?php
 require('../controllers/settings-controller.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -23,54 +24,66 @@ require('../controllers/settings-controller.php');
     <main class="justify-content-center container">
         <div class="card text-center">
             <div class="card-header text-light h5">
-                Bonjour : <span class="fw-bold"><?= $_SESSION['user']['nickname'] ?></span>
+                Bonjour <span class="fw-bold"><?= $_SESSION['user']['nickname'] ?></span>
             </div>
             <div class="card-body text-light">
                 <form action="" method="post">
                     <fieldset class="themepicker">
                         <div>
-                            <input type="checkbox">
-                            <input 
+                            <input type="checkbox" class="lightDark" id="lightDark" name="theme" value="" <?php
+                                                                                                            // <!-- check automatique en cas de cookie -->
+                                                                                                            if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme']) && ($_COOKIE[$_SESSION['user']['nickname'] . 'theme'] == "dark")) {
+                                                                                                                echo 'checked';
+                                                                                                            } else if (isset($_POST['theme']) && ($_POST['theme'] === 'dark')) {
+                                                                                                                echo 'checked';
+                                                                                                            } else {
+                                                                                                                echo '';
+                                                                                                            }
+                                                                                                            ?>>
+
+                            <label for="lightDark">Basique/Sombre</label>
+
+                            <!-- <input 
                                 <?php
-                                    if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme']) && ($_COOKIE[$_SESSION['user']['nickname'] . 'theme'] == "light")) {
-                                        echo 'checked';
-                                    } else if (isset($_POST['theme']) && ($_POST['theme'] === 'light')) {
-                                        echo 'checked';
-                                    } else {
-                                        echo '';
-                                    }
+                                if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme']) && ($_COOKIE[$_SESSION['user']['nickname'] . 'theme'] == "light")) {
+                                    echo 'checked';
+                                } else if (isset($_POST['theme']) && ($_POST['theme'] === 'light')) {
+                                    echo 'checked';
+                                } else {
+                                    echo '';
+                                }
                                 ?> type="radio" id="light" name="theme" value="light">
-                            <label for="light">Basique</label>
+                            <label for="light">Basique</label> -->
                         </div>
 
                         <div>
-                            <input <?php
-                                    if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme']) && ($_COOKIE[$_SESSION['user']['nickname'] . 'theme'] == "dark")) {
-                                        echo 'checked';
-                                    } else if (isset($_POST['theme']) && ($_POST['theme'] === 'dark')) {
-                                        echo 'checked';
-                                    } else {
-                                        echo '';
-                                    }
+                            <!-- <input <?php
+                                        if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme']) && ($_COOKIE[$_SESSION['user']['nickname'] . 'theme'] == "dark")) {
+                                            echo 'checked';
+                                        } else if (isset($_POST['theme']) && ($_POST['theme'] === 'dark')) {
+                                            echo 'checked';
+                                        } else {
+                                            echo '';
+                                        }
 
-                                    ?> type="radio" id="dark" name="theme" value="dark">
-                            <label for="dark">Sombre</label>
+                                        ?> type="radio" id="dark" name="theme" value="dark">
+                            <label for="dark">Sombre</label> -->
                         </div>
                     </fieldset>
                     <fieldset class="consolepicker">
                         <legend>Choisis tes consoles</legend>
                         <div>
-                            <input type="radio" id="ps4" name="consolepref[]" value="ps4">
+                            <input type="checkbox" id="ps4" name="consolepref[]" value="ps4">
                             <label for="ps4">Playstation 4</label>
-                            <input type="radio" id="ps5" name="consolepref[]" value="ps5">
+                            <input type="checkbox" id="ps5" name="consolepref[]" value="ps5">
                             <label for="ps5">Playstation 5</label>
-                            <input type="radio" id="xbox" name="consolepref[]" value="xbox">
+                            <input type="checkbox" id="xbox" name="consolepref[]" value="xbox">
                             <label for="xbox">Xbox</label>
-                            <input type="radio" id="switch" name="consolepref[]" value="switch">
+                            <input type="checkbox" id="switch" name="consolepref[]" value="switch">
                             <label for="switch">Nintendo Switch</label>
-                            <input type="radio" id="pc" name="consolepref[]" value="pc">
+                            <input type="checkbox" id="pc" name="consolepref[]" value="pc">
                             <label for="pc">PC</label>
-                            <input type="radio" id="mobile" name="consolepref[]" value="mobile">
+                            <input type="checkbox" id="mobile" name="consolepref[]" value="mobile">
                             <label for="mobile">Mobile</label>
 
                         </div>
@@ -97,18 +110,35 @@ require('../controllers/settings-controller.php');
             </div>
 
         </div>
-
-
-
-
-
-
-
     </main>
 
 
     <?php include('components/footer.php') ?>
 
+    <script>
+        function deleteCookie(name) {
+            document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        }
+
+
+        var checkbox = document.getElementById("lightDark");
+        var theme = "";
+        var link = document.querySelector("head link:nth-of-type(3)"); // target the second link stylesheet in head
+
+        checkbox.onchange = function() {
+            if (this.checked) {
+                checkbox.value = "dark";
+                theme = "dark";
+                link.href = "../assets/css/" + theme + "-style.css"; // set the link's href to the light theme stylesheet
+
+            } else {
+                checkbox.value = "light";
+                theme = "light";
+                link.href = "../assets/css/" + theme + "-style.css"; // set the link's href to the dark theme stylesheet
+                deleteCookie($_SESSION['user']['nickname'] + 'theme');
+            }
+        };
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="../assets/js/script.js"></script>

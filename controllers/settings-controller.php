@@ -7,7 +7,7 @@ if (!isset($_SESSION['user'])) {
 }
 
 
-
+// Mode light/dark
 if (isset($_POST['theme'])) { // Si on détecte la méthode POST pour l'input "theme"
     setcookie($_SESSION['user']['nickname'] . 'theme', $_POST['theme'], time() + (86400 * 30), "/"); // 86400 = 1 jour // Alors on crée un cookie au nom "theme", qui aura pour valeur le contenu du $_POST['theme'], le '/' fait que le cookie sera là sur toutes les pages du domaine
     $theme = $_POST['theme']; // On crée une variable $theme, qui a pour valeur le thème choisi
@@ -17,6 +17,13 @@ if (isset($_POST['theme'])) { // Si on détecte la méthode POST pour l'input "t
 } else {
     $theme = 'light'; // Sinon, le thème sera par défaut "light"
 }
+
+if($_SERVER['REQUEST_METHOD']=="POST" && !isset($_POST['theme'])){
+    setcookie($_SESSION['user']['nickname'] . 'theme', 'light', time() + (86400 * 30), "/");
+    $theme = "light"; 
+}
+
+
 
 // Récupération des choix de préférence de console
 if (isset($_POST['consolepref'])) { // Si on détecte la méthode POST pour l'input "consolepref"
