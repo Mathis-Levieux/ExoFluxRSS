@@ -275,11 +275,20 @@ function displayCarousel($array)
     echo '
     <div id="carouselExample" class="carousel slide">
 <div class="carousel-inner">';
+    $first = true; // On initialise un booléen pour savoir si c'est le premier item ou non
     foreach ($array as $item) {
-        echo '
+        if ($first) { // Si c'est le premier item
+            echo '
     <div class="carousel-item active">
       <img src="' . $item['image'] . '" class="d-block w-100" alt="...">
     </div>';
+            $first = false; // On passe le booléen à false pour les prochains items
+        } else {
+            echo '
+    <div class="carousel-item">
+      <img src="' . $item['image'] . '" class="d-block w-100" alt="...">
+    </div>';
+        }
     }
     echo '</div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
