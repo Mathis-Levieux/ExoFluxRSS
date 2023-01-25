@@ -21,8 +21,7 @@ require('../controllers/pages-controller.php');
 </header>
 <?php 
 
-        displayPreferencesArticles();
-    
+displayOnlyOnePage("ps4", "playstation")
 ?>
 
 
