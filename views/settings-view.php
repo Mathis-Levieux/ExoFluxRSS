@@ -23,34 +23,18 @@ require('../controllers/settings-controller.php');
 
     <main class="justify-content-center container">
         <div class="card text-center">
-            <div class="card-header text-light h5">
+            <div class="card-header text-light h3">
                 Bonjour <span class="fw-bold"><?= $_SESSION['user']['nickname'] ?></span>
             </div>
             <div class="card-body text-light">
                 <form action="" method="post">
-                    <fieldset class="themepicker">
-                        <div>
-                            <input type="checkbox" class="lightDark" id="lightDark" name="theme" value="" 
-                            <?php
-                                // check automatique en cas de cookie -->
-                                if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme']) && ($_COOKIE[$_SESSION['user']['nickname'] . 'theme'] == "dark")) {
-                                    echo 'checked';
-                                } else if (isset($_POST['theme']) && ($_POST['theme'] === 'dark')) {
-                                    echo 'checked';
-                                } else {
-                                    echo '';
-                                }
-                            ?>
-                            >
-                            <label for="lightDark" id="IDtheme"><img src="https://img.icons8.com/ios-filled/40/FFFFFF/sun--v1.png"/></label>
-                    </fieldset>
                     <fieldset class="consolepicker">
-                        <legend>Choisis tes consoles</legend>
+                        <legend class="fs-6">Préférences</legend>
                         <div>
                             <input type="checkbox" id="ps4" name="consolepref[]" value="ps4">
-                            <label for="ps4">Playstation 4</label>
+                            <label for="ps4">PS4</label>
                             <input type="checkbox" id="ps5" name="consolepref[]" value="ps5">
-                            <label for="ps5">Playstation 5</label>
+                            <label for="ps5">PS5</label>
                             <input type="checkbox" id="xbox" name="consolepref[]" value="xbox">
                             <label for="xbox">Xbox</label>
                             <input type="checkbox" id="switch" name="consolepref[]" value="switch">
@@ -74,7 +58,23 @@ require('../controllers/settings-controller.php');
                                 <option value="20">20</option>
                             </select>
                         </div>
-
+                        <fieldset class="themepicker">
+                        <div>
+                            <input type="checkbox" class="lightDark" id="lightDark" name="theme" value="" 
+                            <?php
+                                // check automatique en cas de cookie -->
+                                if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme']) && ($_COOKIE[$_SESSION['user']['nickname'] . 'theme'] == "dark")) {
+                                    echo 'checked';
+                                } else if (isset($_POST['theme']) && ($_POST['theme'] === 'dark')) {
+                                    echo 'checked';
+                                } else {
+                                    echo '';
+                                }
+                            ?>
+                            >
+                            <label for="lightDark" id="IDtheme"><img src="https://img.icons8.com/ios-filled/30/FFFFFF/sun--v1.png"/>/<img src="https://img.icons8.com/sf-regular-filled/30/FFFFFF/moon-symbol.png"/></label>
+                        </div>
+                    </fieldset>
                         <div>
                             <input type="submit" value="Enregistrer">
                         </div>
@@ -93,19 +93,16 @@ require('../controllers/settings-controller.php');
         var checkbox = document.getElementById("lightDark");
         var theme = "";
         var link = document.querySelector("head link:nth-of-type(3)"); // target the second link stylesheet in head
-        var IDtheme = document.getElementById("IDtheme")
         checkbox.onchange = function() {
             if (this.checked) {
                 checkbox.value = "dark";
                 theme = "dark";
                 link.href = "assets/css/" + theme + "-style.css"; // set the link's href to the light theme stylesheet
-                // IDtheme.innerHTML = '<img src="https://img.icons8.com/sf-regular-filled/40/FFFFFF/moon-symbol.png"/>'; 
 
             } else {
                 checkbox.value = "light";
                 theme = "light";
                 link.href = "assets/css/" + theme + "-style.css"; // set the link's href to the dark theme stylesheet
-                // IDtheme.innerHTML = '<img src="https://img.icons8.com/ios-filled/40/FFFFFF/sun--v1.png"/>'; 
             }
         };
     </script>
