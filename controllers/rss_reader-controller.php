@@ -92,6 +92,7 @@ function displayPreferencesArticles()
     $allArticles = getArticlesInArray();
     $allArticles = deleteDuplicate($allArticles);
     $allArticles = array_slice($allArticles, 0, getUserNbArticleCookie()); // Récupère les articles dans un tableau et supprime les articles en trop
+    displayCarousel(getFirst5InArray($allArticles)); // Affiche le carousel
     // foreach de $allarticles
     foreach ($allArticles as $article) {
 
@@ -109,8 +110,6 @@ function displayPreferencesArticles()
         // Récupèrer l'image de la console
         $console = $article['console'];
         $consoleimage = "assets/img/$console.png";
-        displayCarousel(getFirst5InArray($allArticles), $consoleimage); // Affiche le carousel
-
         echo '
         <div class="card mb-3" data-bs-toggle="modal" data-bs-target="#' . $first_word . '">
             <img src="' . $article['image'] . '" class="card-img-top" alt="photo article">
@@ -190,7 +189,7 @@ function displayOnlyOnePage($console, $imgconsole)
     usort($consoleArticles, function ($a, $b) {
         return strtotime($b['date']) - strtotime($a['date']);
     });
-    displayCarousel(getFirst5InArray($consoleArticles), $imgconsole); // Affiche le carousel
+    displayCarousel(getFirst5InArray($consoleArticles)); // Affiche le carousel
     foreach ($consoleArticles as $article) {
 
         // récupérer la date <dc:date>
@@ -271,7 +270,7 @@ function getFirst5InArray($array)
     return $arrayCarousel;
 }
 
-function displayCarousel($array, $imgconsole)
+function displayCarousel($array)
 {
     echo '
     <div id="carouselExample" class="carousel slide">
