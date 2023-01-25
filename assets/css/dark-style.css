@@ -22,6 +22,12 @@ img.card-img-top {
     filter: grayscale(50%);
     object-fit: cover;
 }
+.card-body{
+    padding-top:0 !important; 
+    padding-bottom: 0 !important;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
 a {
     color: #fff;
 }
@@ -88,20 +94,20 @@ nav.navbar.fixed-bottom a img{
 }
 
 /* SETTINGS */
-input[type="checkbox"] {
+input.lightDark {
     position: relative;
     width: 40px;
     height: 20px;
     -webkit-appearance: none;
     appearance: none;
-    background: red;
+    background: #e3d1ff;
     outline: none;
     border-radius: 2rem;
     cursor: pointer;
     box-shadow: inset 0 0 5px rgb(0 0 0 / 50%);
   }
   
-  input[type="checkbox"]::before {
+  input.lightDark::before {
     content: "";
     width: 20px;
     height: 20px;
@@ -113,12 +119,12 @@ input[type="checkbox"] {
     transition: 0.5s;
   }
   
-  input[type="checkbox"]:checked::before {
+  input.lightDark:checked::before {
     transform: translateX(100%);
     background: #fff;
   }
   
-  input[type="checkbox"]:checked {
-    background: #00ed64;
+  input.lightDark:checked {
+    background: #29075c; 
   }
   

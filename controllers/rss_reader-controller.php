@@ -110,14 +110,16 @@ function displayPreferencesArticles()
         // Récupèrer l'image de la console
         $console = $article['console'];
         $consoleimage = "../assets/img/$console.png";
+
+        // Afficher les articles
         echo '
         <div class="card mb-3" data-bs-toggle="modal" data-bs-target="#' . $first_word . '">
             <img src="' . $article['image'] . '" class="card-img-top" alt="photo article">
             <div class="card-body">
-                <h5 class="card-title text-light"><img src="' . $consoleimage . '" alt="logo">
+                <h5 class="card-title text-light mb-0"><img src="' . $consoleimage . '" alt="logo">
                 ' . $Title . '
                 </h5>
-                <p class="card-text text-light">
+                <p class="card-text text-light mb-0">
                     ' . $subtitle . '
                 </p>
                 <p class="card-text text-end">
