@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['user'] = [
                         'nickname' => $usernickname
                     ];
-                    header('Location: home-view.php'); // Redirection vers la page d'accueil
+                    header('Location: accueil.php'); // Redirection vers la page d'accueil
                 } else { // Si le mot de passe est incorrect, on envoie une erreur
                     $arrayErrors['password'] = "Mot de passe incorrect";
                 }

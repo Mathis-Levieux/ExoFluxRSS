@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteRule ^accueil.php$ views/home-view.php
+RewriteRule ^accueil.php?switch$ views/home-view.php?switch
+RewriteRule ^accueil.php?ps5$ views/home-view.php?ps5
+RewriteRule ^accueil.php?pc$ views/home-view.php?pc
+RewriteRule ^accueil.php?mobile$ views/home-view.php?mobile
+RewriteRule ^accueil.php?xbox$ views/home-view.php?xbox
+RewriteRule ^connexion.php$ views/login-view.php
+RewriteRule ^parametres.php$ views/settings-view.php
+

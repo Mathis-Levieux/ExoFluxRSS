@@ -92,7 +92,6 @@ function displayPreferencesArticles()
     $allArticles = getArticlesInArray();
     $allArticles = deleteDuplicate($allArticles);
     $allArticles = array_slice($allArticles, 0, getUserNbArticleCookie()); // Récupère les articles dans un tableau et supprime les articles en trop
-
     // foreach de $allarticles
     foreach ($allArticles as $article) {
 
@@ -110,8 +109,8 @@ function displayPreferencesArticles()
         // Récupèrer l'image de la console
         $console = $article['console'];
         $consoleimage = "../assets/img/$console.png";
+        displayCarousel(getFirst5InArray($allArticles), $consoleimage); // Affiche le carousel
 
-        // Afficher les articles
         echo '
         <div class="card mb-3" data-bs-toggle="modal" data-bs-target="#' . $first_word . '">
             <img src="' . $article['image'] . '" class="card-img-top" alt="photo article">
@@ -154,8 +153,12 @@ function displayPreferencesArticles()
 
 function getUserNbArticleCookie()
 {
-    if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles'])) {
-        return $_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles'];;
+    if (isset($_SESSION['user']['nickname'])) {
+        if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles'])) {
+            return $_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles'];;
+        } else {
+            return 12;
+        }
     } else {
         return 12;
     }
@@ -181,10 +184,13 @@ function deleteDuplicate($array)
 function displayOnlyOnePage($console, $imgconsole)
 {
     $consoleArticles = getRssArticles('https://www.jeuxactu.com/rss/' . $console . '.rss', $imgconsole);
+    $consoleArticles = deleteDuplicate($consoleArticles);
+    $consoleArticles = array_slice($consoleArticles, 0, getUserNbArticleCookie()); // Récupère les articles dans un tableau et supprime les articles en trop
     // Trie les articles par date
     usort($consoleArticles, function ($a, $b) {
         return strtotime($b['date']) - strtotime($a['date']);
     });
+    displayCarousel(getFirst5InArray($consoleArticles), $imgconsole); // Affiche le carousel
     foreach ($consoleArticles as $article) {
 
         // récupérer la date <dc:date>
@@ -237,4 +243,53 @@ function displayOnlyOnePage($console, $imgconsole)
       </div>
          ';
     }
+}
+
+function getUserPage() // Affiche la page demandée par l'utilisateur
+{
+    if (isset($_GET['ps4'])) {
+        displayOnlyOnePage("ps4", "playstation");
+    } else if (isset($_GET['ps5'])) {
+        displayOnlyOnePage("ps5", "playstation");
+    } else if (isset($_GET['switch'])) {
+        displayOnlyOnePage("switch", "switch");
+    } else if (isset($_GET['mobile'])) {
+        displayOnlyOnePage("mobile", "mobile");
+    } else if (isset($_GET['pc'])) {
+        displayOnlyOnePage("pc", "pc");
+    } else if (isset($_GET['xbox'])) {
+        displayOnlyOnePage("xbox", "xbox");
+    } else {
+        displayPreferencesArticles();
+    }
+}
+
+
+function getFirst5InArray($array)
+{
+    $arrayCarousel = array_slice($array, 0, 5);
+    return $arrayCarousel;
+}
+
+function displayCarousel($array, $imgconsole)
+{
+    echo '
+    <div id="carouselExample" class="carousel slide">
+<div class="carousel-inner">';
+    foreach ($array as $item) {
+        echo '
+    <div class="carousel-item active">
+      <img src="' . $item['image'] . '" class="d-block w-100" alt="...">
+    </div>';
+    }
+    echo '</div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>';
 }
