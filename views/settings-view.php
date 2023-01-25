@@ -98,13 +98,13 @@ require('../controllers/settings-controller.php');
             if (this.checked) {
                 checkbox.value = "dark";
                 theme = "dark";
-                link.href = "../assets/css/" + theme + "-style.css"; // set the link's href to the light theme stylesheet
+                link.href = "assets/css/" + theme + "-style.css"; // set the link's href to the light theme stylesheet
                 // IDtheme.innerHTML = '<img src="https://img.icons8.com/sf-regular-filled/40/FFFFFF/moon-symbol.png"/>'; 
 
             } else {
                 checkbox.value = "light";
                 theme = "light";
-                link.href = "../assets/css/" + theme + "-style.css"; // set the link's href to the dark theme stylesheet
+                link.href = "assets/css/" + theme + "-style.css"; // set the link's href to the dark theme stylesheet
                 // IDtheme.innerHTML = '<img src="https://img.icons8.com/ios-filled/40/FFFFFF/sun--v1.png"/>'; 
             }
         };

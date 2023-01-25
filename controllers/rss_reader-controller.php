@@ -108,7 +108,7 @@ function displayPreferencesArticles()
 
         // Récupèrer l'image de la console
         $console = $article['console'];
-        $consoleimage = "../assets/img/$console.png";
+        $consoleimage = "assets/img/$console.png";
         displayCarousel(getFirst5InArray($allArticles), $consoleimage); // Affiche le carousel
 
         echo '
@@ -206,7 +206,7 @@ function displayOnlyOnePage($console, $imgconsole)
 
         // Récupèrer l'image de la console
         $console = $article['console'];
-        $consoleimage = "../assets/img/$console.png";
+        $consoleimage = "assets/img/$console.png";
         echo '
         <div class="card mb-3" data-bs-toggle="modal" data-bs-target="#' . $first_word . '">
             <img src="' . $article['image'] . '" class="card-img-top" alt="photo article">
