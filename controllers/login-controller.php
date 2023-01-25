@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nickname = $_POST['nickname'];
     }
     if (empty($nickname)) { // Si le pseudo est vide, on envoie une erreur
-        $arrayErrors['nickname'] = "Pseudo requis";
+        $arrayErrors['nickname'] =  "<span class='danger'><i class='bi bi-exclamation-circle-fill'></i> Pseudo requis</span>";
     }
 
     // Vérification du mot de passe
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $password = $_POST['password'];
     }
     if (empty($password)) { // Si le mot de passe est vide, on envoie une erreur
-        $arrayErrors['password'] = "Mot de passe requis";
+        $arrayErrors['password'] = "<span class='danger'><i class='bi bi-exclamation-circle-fill'></i> Mot de passe requis</span>";
     }
 
     // Si le tableau d'erreurs est vide, on déclenche la vérification du login
@@ -58,12 +58,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     ];
                     header('Location: accueil.php'); // Redirection vers la page d'accueil
                 } else { // Si le mot de passe est incorrect, on envoie une erreur
-                    $arrayErrors['password'] = "Mot de passe incorrect";
+                    $arrayErrors['password'] = '<span class="danger"><i class="bi bi-x-circle-fill"></i> Mot de passe incorrect</span>';
                 }
             }
             // Si le tableau d'erreur est toujours vide, c'est que le pseudo est incorrect
             else if (empty($arrayErrors)) {
-                $arrayErrors['nickname'] = "Ce pseudo n'existe pas";
+                $arrayErrors['nickname'] = "<span class='danger'><i class='bi bi-x-circle-fill'></i> Ce pseudo n'existe pas</span>";
             }
         }
     }
