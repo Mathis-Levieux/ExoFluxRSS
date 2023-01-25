@@ -272,21 +272,37 @@ function getFirst5InArray($array)
 
 function displayCarousel($array)
 {
+
     echo '
-    <div id="carouselExample" class="carousel slide">
-<div class="carousel-inner">';
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+<div class="carousel-inner" >';
     $first = true; // On initialise un booléen pour savoir si c'est le premier item ou non
     foreach ($array as $item) {
+        @$Title = explode(':', $item['title'])[0];
+        @$subtitle = explode(':', $item['title'])[1];
+
         if ($first) { // Si c'est le premier item
             echo '
     <div class="carousel-item active">
-      <img src="' . $item['image'] . '" class="d-block w-100" alt="...">
+        <img src="' . $item['image'] . '" class="d-block w-100" alt="...">
+            <div class="carousel-caption">
+                <a href="' . $item['link'] . '">
+                    <h1 class="fw-bold"><img src="assets/img/' . $item['console'] . '.png" alt="logo">' . $Title . '</h1>
+                    <p class="fw-bold fs-5">' . $subtitle . '</p>
+                </a>
+            </div>
     </div>';
             $first = false; // On passe le booléen à false pour les prochains items
         } else {
             echo '
-    <div class="carousel-item">
-      <img src="' . $item['image'] . '" class="d-block w-100" alt="...">
+    <div class="carousel-item" href="' . $item['link'] . '">
+    <img src="' . $item['image'] . '" class="d-block w-100" alt="...">
+            <div class="carousel-caption">
+                <a href="' . $item['link'] . '">
+                    <h1 class="fw-bold"><img src="assets/img/' . $item['console'] . '.png" alt="logo">' . $Title . '</h1>
+                    <p class="fw-bold fs-5">' . $subtitle . '</p>
+                </a>
+            </div>
     </div>';
         }
     }

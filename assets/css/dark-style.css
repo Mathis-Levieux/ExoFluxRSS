@@ -20,7 +20,6 @@ body {
 }
 img.card-img-top {
     height: 150px; 
-    filter: grayscale(50%);
     object-fit: cover;
 }
 .card-body{
@@ -135,4 +134,13 @@ input.lightDark {
   }
   .danger {
     color: rgb(249, 131, 131) !important;
+  }
+
+  /* CAROUSEL */
+  .carousel-item img.d-block {
+    filter: grayscale(90%);
+  }
+  
+  .carousel-caption a{
+    text-decoration: none !important;
   }
