@@ -42,33 +42,6 @@ require('../controllers/settings-controller.php');
                                                                                                             ?>>
 
                             <label for="lightDark">Basique/Sombre</label>
-
-                            <!-- <input 
-                                <?php
-                                if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme']) && ($_COOKIE[$_SESSION['user']['nickname'] . 'theme'] == "light")) {
-                                    echo 'checked';
-                                } else if (isset($_POST['theme']) && ($_POST['theme'] === 'light')) {
-                                    echo 'checked';
-                                } else {
-                                    echo '';
-                                }
-                                ?> type="radio" id="light" name="theme" value="light">
-                            <label for="light">Basique</label> -->
-                        </div>
-
-                        <div>
-                            <!-- <input <?php
-                                        if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme']) && ($_COOKIE[$_SESSION['user']['nickname'] . 'theme'] == "dark")) {
-                                            echo 'checked';
-                                        } else if (isset($_POST['theme']) && ($_POST['theme'] === 'dark')) {
-                                            echo 'checked';
-                                        } else {
-                                            echo '';
-                                        }
-
-                                        ?> type="radio" id="dark" name="theme" value="dark">
-                            <label for="dark">Sombre</label> -->
-                        </div>
                     </fieldset>
                     <fieldset class="consolepicker">
                         <legend>Choisis tes consoles</legend>
@@ -116,11 +89,6 @@ require('../controllers/settings-controller.php');
     <?php include('components/footer.php') ?>
 
     <script>
-        function deleteCookie(name) {
-            document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-        }
-
-
         var checkbox = document.getElementById("lightDark");
         var theme = "";
         var link = document.querySelector("head link:nth-of-type(3)"); // target the second link stylesheet in head
@@ -135,7 +103,7 @@ require('../controllers/settings-controller.php');
                 checkbox.value = "light";
                 theme = "light";
                 link.href = "../assets/css/" + theme + "-style.css"; // set the link's href to the dark theme stylesheet
-                deleteCookie($_SESSION['user']['nickname'] + 'theme');
+                
             }
         };
     </script>
