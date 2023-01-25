@@ -34,6 +34,7 @@ if (isset($_POST['consolepref'])) { // Si on détecte la méthode POST pour l'in
 } elseif (isset($_COOKIE[$_SESSION['user']['nickname'] . 'consolepref'])) {
     // Récupération des choix stockés dans le cookie
     $consolepref = json_decode($_COOKIE[$_SESSION['user']['nickname'] . 'consolepref'], true);
+    
 }
 
 
@@ -47,3 +48,6 @@ if (isset($_POST['nbarticles'])) { // Si on détecte la méthode POST pour l'inp
     // Récupération des choix stockés dans le cookie
     $nbarticles = $_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles']; // alors la variable prend pour valeur celle du cookie
 }
+
+
+$console_preferences = json_decode($_COOKIE[$_SESSION['user']['nickname'] . 'consolepref']); // On décode le cookie
