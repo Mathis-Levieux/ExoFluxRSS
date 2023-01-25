@@ -30,32 +30,24 @@ require('../controllers/settings-controller.php');
                 <form action="" method="post">
                     <fieldset class="consolepicker">
                         <legend class="fs-5 mt-3">Préférences : </legend>
-                        <ul>
-                            <li><input type="checkbox" id="ps4" name="consolepref[]" value="ps4">
+                            <div><input type="checkbox" id="ps4" name="consolepref[]" value="ps4">
                                 <label for="ps4">PS4</label>
                                 <input type="checkbox" id="ps5" name="consolepref[]" value="ps5">
                                 <label for="ps5">PS5</label>
-                            </li>
-                            <li>
                                 <input type="checkbox" id="xbox" name="consolepref[]" value="xbox">
                                 <label for="xbox">Xbox</label>
+                            </div>
+                            <div>
                                 <input type="checkbox" id="switch" name="consolepref[]" value="switch">
                                 <label for="switch">Switch</label>
-                            </li>
-                            <li>
                                 <input type="checkbox" id="pc" name="consolepref[]" value="pc">
                                 <label for="pc">PC</label>
                                 <input type="checkbox" id="mobile" name="consolepref[]" value="mobile">
                                 <label for="mobile">Mobile</label>
-                            </li>
-
-
-
-
-                        </ul>
+                            </div>
                     </fieldset>
                     <fieldset class="nbarticles">
-                        <div class="mb-3">
+                        <div class="mb-3 mt-3">
                             <label for="nbarticles">Nombre d'articles par page</label>
                             <select name="nbarticles">
                                 <option value="5">5</option>
@@ -65,7 +57,6 @@ require('../controllers/settings-controller.php');
                             </select>
                         </div>
                         <fieldset class="themepicker">
-                            <legend class="fs-5">Thème : </legend>
                             <div>
                                 <input type="checkbox" class="lightDark" id="lightDark" name="theme" value="" <?php
                                                                                                                 // check automatique en cas de cookie -->
