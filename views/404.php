@@ -18,9 +18,12 @@
     </header>
     
     <main >
-        <div class=" card text-center">
+        <div class="card text-center error404 m-5 p-2">
             <div class="card-body text-light h1">
-            <i class="bi bi-emoji-dizzy"></i> ERREUR 404 <i class="bi bi-emoji-dizzy"></i>
+            ERREUR 404 
+            </div>
+            <div class="h1 text-light">
+            <img src="https://img.icons8.com/windows/96/FFFFFF/dead-emoji.png"/>
             </div>
         </div>
     </main>

@@ -161,3 +161,10 @@ input.lightDark:checked {
   .carousel-caption a{
     text-decoration: none !important;
   }
+
+  /* 404 */
+ 
+  div.error404 .card-body{
+    font-family: 'Press Start 2P', cursive;
+
+  }
