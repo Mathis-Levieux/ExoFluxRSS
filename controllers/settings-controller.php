@@ -51,3 +51,4 @@ if (isset($_POST['nbarticles'])) { // Si on détecte la méthode POST pour l'inp
 
 
 $console_preferences = json_decode($_COOKIE[$_SESSION['user']['nickname'] . 'consolepref']); // On décode le cookie
+
