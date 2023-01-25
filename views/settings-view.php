@@ -31,31 +31,26 @@ require('../controllers/settings-controller.php');
                     <fieldset class="consolepicker">
                         <legend class="fs-5 mt-3">Préférences : </legend>
                         <ul>
-                            <li><input <?= in_array("ps4", $console_preferences) ? "checked" : "" ?> type="checkbox" id="ps4" name="consolepref[]" value="ps4">
+                            <div><input <?= in_array("ps4", $console_preferences) ? "checked" : "" ?> type="checkbox" id="ps4" name="consolepref[]" value="ps4">
                                 <label for="ps4">PS4</label>
                                 <input <?= in_array("ps5", $console_preferences) ? "checked" : "" ?> type="checkbox" id="ps5" name="consolepref[]" value="ps5">
                                 <label for="ps5">PS5</label>
-                            </li>
-                            <li>
+                            </div>
+                            <div>
                                 <input <?= in_array("xbox", $console_preferences) ? "checked" : "" ?> type="checkbox" id="xbox" name="consolepref[]" value="xbox">
                                 <label for="xbox">Xbox</label>
                                 <input <?= in_array("switch", $console_preferences) ? "checked" : "" ?> type="checkbox" id="switch" name="consolepref[]" value="switch">
                                 <label for="switch">Switch</label>
-                            </li>
-                            <li>
+                            </div>
+                            <div>
                                 <input <?= in_array("pc", $console_preferences) ? "checked" : "" ?> type="checkbox" id="pc" name="consolepref[]" value="pc">
                                 <label for="pc">PC</label>
                                 <input <?= in_array("mobile", $console_preferences) ? "checked" : "" ?> type="checkbox" id="mobile" name="consolepref[]" value="mobile">
                                 <label for="mobile">Mobile</label>
-                            </li>
-
-
-
-
-                        </ul>
+                            </div>
                     </fieldset>
                     <fieldset class="nbarticles">
-                        <div class="mb-3">
+                        <div class="mb-3 mt-3">
                             <label for="nbarticles">Nombre d'articles par page</label>
                             <select name="nbarticles">
                                 <option <?= $_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles'] == 5 ? "selected" : "" ?> value="5">5</option>
@@ -65,7 +60,6 @@ require('../controllers/settings-controller.php');
                             </select>
                         </div>
                         <fieldset class="themepicker">
-                            <legend class="fs-5">Thème : </legend>
                             <div>
                                 <input type="checkbox" class="lightDark" id="lightDark" name="theme" value="<?php
                                                                                                             // value automatique en cas de cookie -->

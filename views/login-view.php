@@ -23,14 +23,33 @@ require('../controllers/login-controller.php');
         header('Location: accueil.php');
     } ?>
     <main class="main-login">
-
-        <div class="login-container w-50 m-auto">
-            <h2>Connexion</h2>
-            <form action="" method="POST">
-                <div><input value="<?= $_POST['nickname'] ?? '' ?>" placeholder="Pseudo" type="text" name="nickname"></input><span class="login-error"><?= $arrayErrors['nickname'] ?? '' ?></span></div>
-                <div><input placeholder="Mot de passe" type="password" name="password"></input><span class="login-error"><?= $arrayErrors['password'] ?? '' ?></span></div>
-                <div><button id="submit" type="submit">Se connecter</button></div>
-            </form>
+        <div class="login-container card text-center">
+            <div class="text-light h3 m-3">
+                Connexion
+            </div>
+            <div class="card-body text-light">
+                <form action="" method="POST">
+                    <div>
+                        <div class="input-group mx-auto">
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
+                            <input type="text" class="form-control rounded" placeholder="Pseudo" aria-label="Username" aria-describedby="basic-addon1" value="<?= $_POST['nickname'] ?? '' ?>" name="nickname">
+                        </div>
+                        <div class="login-error">
+                        <?= $arrayErrors['nickname'] ?? '' ?>
+                        </div>
+                        <div class="input-group mx-auto">
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-key"></i></span>
+                            <input type="password" class="form-control rounded" placeholder="Mot de passe" aria-label="Username" aria-describedby="basic-addon1" name="password">
+                        </div>
+                        <div class="login-error">
+                        <?= $arrayErrors['password'] ?? '' ?>
+                        </div>  
+                    </div>
+                    <div>
+                        <button id="submit" type="submit" class="btn btn-outline-light m-3">Se connecter</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </main>
 
@@ -38,7 +57,7 @@ require('../controllers/login-controller.php');
 
 
 
-<?php include('components/footer.php') ?>
+    <?php include('components/footer.php') ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="../assets/js/script.js"></script>

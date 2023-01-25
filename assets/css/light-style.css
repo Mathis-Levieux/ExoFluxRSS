@@ -139,8 +139,25 @@ input.lightDark::before {
 input.lightDark:checked::before {
     transform: translateX(100%);
     background: #fff;
+<<<<<<< HEAD
 }
 
 input.lightDark:checked {
     background: #29075c;
 }
+=======
+  }
+  
+  input.lightDark:checked {
+    background: #29075c; 
+  }
+  
+ 
+  /* LOGIN */
+  .input-group {
+    width: 250px !important;
+  }
+  .danger {
+    color: rgb(249, 131, 131) !important;
+  }
+>>>>>>> 343f3b417be0b5afa3f8c8d65c75d1a44371251a

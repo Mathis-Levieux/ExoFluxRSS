@@ -129,3 +129,10 @@ input.lightDark {
     background: #390a80; 
   }
   
+  /* LOGIN */
+  .input-group {
+    width: 250px !important;
+  }
+  .danger {
+    color: rgb(249, 131, 131) !important;
+  }
