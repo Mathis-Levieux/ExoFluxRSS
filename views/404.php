@@ -1,4 +1,4 @@
-<?php require('controllers/404-controller.php') ?>
+<?php require('../controllers/404-controller.php') ?>
 <!DOCTYPE html>
 <html lang="fr">
 

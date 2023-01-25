@@ -7,4 +7,6 @@ RewriteRule ^accueil.php?mobile$ views/home-view.php?mobile
 RewriteRule ^accueil.php?xbox$ views/home-view.php?xbox
 RewriteRule ^connexion.php$ views/login-view.php
 RewriteRule ^parametres.php$ views/settings-view.php
-RewriteRule ErrorDocument 404 /404.php
+RewriteRule ^404.php$ views/404.php
+ErrorDocument 404 /404.php
+
