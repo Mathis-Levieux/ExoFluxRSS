@@ -152,8 +152,12 @@ function displayPreferencesArticles()
 
 function getUserNbArticleCookie()
 {
-    if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles'])) {
-        return $_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles'];;
+    if (isset($_SESSION['user']['nickname'])) {
+        if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles'])) {
+            return $_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles'];;
+        } else {
+            return 12;
+        }
     } else {
         return 12;
     }
@@ -179,6 +183,8 @@ function deleteDuplicate($array)
 function displayOnlyOnePage($console, $imgconsole)
 {
     $consoleArticles = getRssArticles('https://www.jeuxactu.com/rss/' . $console . '.rss', $imgconsole);
+    $consoleArticles = deleteDuplicate($consoleArticles);
+    $consoleArticles = array_slice($consoleArticles, 0, getUserNbArticleCookie()); // Récupère les articles dans un tableau et supprime les articles en trop
     // Trie les articles par date
     usort($consoleArticles, function ($a, $b) {
         return strtotime($b['date']) - strtotime($a['date']);
@@ -234,5 +240,24 @@ function displayOnlyOnePage($console, $imgconsole)
         </div>
       </div>
          ';
+    }
+}
+
+function getUserPage() // Affiche la page demandée par l'utilisateur
+{
+    if (isset($_GET['ps4'])) {
+        displayOnlyOnePage("ps4", "playstation");
+    } else if (isset($_GET['ps5'])) {
+        displayOnlyOnePage("ps5", "playstation");
+    } else if (isset($_GET['switch'])) {
+        displayOnlyOnePage("switch", "switch");
+    } else if (isset($_GET['mobile'])) {
+        displayOnlyOnePage("mobile", "mobile");
+    } else if (isset($_GET['pc'])) {
+        displayOnlyOnePage("pc", "pc");
+    } else if (isset($_GET['xbox'])) {
+        displayOnlyOnePage("xbox", "xbox");
+    } else {
+        displayPreferencesArticles();
     }
 }

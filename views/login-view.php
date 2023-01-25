@@ -20,7 +20,7 @@ require('../controllers/login-controller.php');
         <?php include('components/header.php') ?>
     </header>
     <?php if (isset($_SESSION['user'])) {
-        header('Location: ../views/home-view.php');
+        header('Location: accueil.php');
     } ?>
     <main class="main-login">
 
