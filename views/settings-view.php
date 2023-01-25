@@ -30,18 +30,19 @@ require('../controllers/settings-controller.php');
                 <form action="" method="post">
                     <fieldset class="themepicker">
                         <div>
-                            <input type="checkbox" class="lightDark" id="lightDark" name="theme" value="" <?php
-                                                                                                            // <!-- check automatique en cas de cookie -->
-                                                                                                            if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme']) && ($_COOKIE[$_SESSION['user']['nickname'] . 'theme'] == "dark")) {
-                                                                                                                echo 'checked';
-                                                                                                            } else if (isset($_POST['theme']) && ($_POST['theme'] === 'dark')) {
-                                                                                                                echo 'checked';
-                                                                                                            } else {
-                                                                                                                echo '';
-                                                                                                            }
-                                                                                                            ?>>
-
-                            <label for="lightDark">Basique/Sombre</label>
+                            <input type="checkbox" class="lightDark" id="lightDark" name="theme" value="" 
+                            <?php
+                                // check automatique en cas de cookie -->
+                                if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme']) && ($_COOKIE[$_SESSION['user']['nickname'] . 'theme'] == "dark")) {
+                                    echo 'checked';
+                                } else if (isset($_POST['theme']) && ($_POST['theme'] === 'dark')) {
+                                    echo 'checked';
+                                } else {
+                                    echo '';
+                                }
+                            ?>
+                            >
+                            <label for="lightDark" id="IDtheme"><img src="https://img.icons8.com/ios-filled/40/FFFFFF/sun--v1.png"/></label>
                     </fieldset>
                     <fieldset class="consolepicker">
                         <legend>Choisis tes consoles</legend>
@@ -92,18 +93,19 @@ require('../controllers/settings-controller.php');
         var checkbox = document.getElementById("lightDark");
         var theme = "";
         var link = document.querySelector("head link:nth-of-type(3)"); // target the second link stylesheet in head
-
+        var IDtheme = document.getElementById("IDtheme")
         checkbox.onchange = function() {
             if (this.checked) {
                 checkbox.value = "dark";
                 theme = "dark";
                 link.href = "../assets/css/" + theme + "-style.css"; // set the link's href to the light theme stylesheet
+                // IDtheme.innerHTML = '<img src="https://img.icons8.com/sf-regular-filled/40/FFFFFF/moon-symbol.png"/>'; 
 
             } else {
                 checkbox.value = "light";
                 theme = "light";
                 link.href = "../assets/css/" + theme + "-style.css"; // set the link's href to the dark theme stylesheet
-                
+                // IDtheme.innerHTML = '<img src="https://img.icons8.com/ios-filled/40/FFFFFF/sun--v1.png"/>'; 
             }
         };
     </script>
