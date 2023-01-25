@@ -29,27 +29,33 @@ require('../controllers/settings-controller.php');
             <div class="card-body text-light">
                 <form action="" method="post">
                     <fieldset class="consolepicker">
-                        <legend class="fs-6">Préférences</legend>
-                        <div>
-                            <input type="checkbox" id="ps4" name="consolepref[]" value="ps4">
-                            <label for="ps4">PS4</label>
-                            <input type="checkbox" id="ps5" name="consolepref[]" value="ps5">
-                            <label for="ps5">PS5</label>
-                            <input type="checkbox" id="xbox" name="consolepref[]" value="xbox">
-                            <label for="xbox">Xbox</label>
-                            <input type="checkbox" id="switch" name="consolepref[]" value="switch">
-                            <label for="switch">Nintendo Switch</label>
-                            <input type="checkbox" id="pc" name="consolepref[]" value="pc">
-                            <label for="pc">PC</label>
-                            <input type="checkbox" id="mobile" name="consolepref[]" value="mobile">
-                            <label for="mobile">Mobile</label>
+                        <legend class="fs-5 mt-3">Préférences : </legend>
+                        <ul>
+                            <li><input type="checkbox" id="ps4" name="consolepref[]" value="ps4">
+                                <label for="ps4">PS4</label>
+                                <input type="checkbox" id="ps5" name="consolepref[]" value="ps5">
+                                <label for="ps5">PS5</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="xbox" name="consolepref[]" value="xbox">
+                                <label for="xbox">Xbox</label>
+                                <input type="checkbox" id="switch" name="consolepref[]" value="switch">
+                                <label for="switch">Switch</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="pc" name="consolepref[]" value="pc">
+                                <label for="pc">PC</label>
+                                <input type="checkbox" id="mobile" name="consolepref[]" value="mobile">
+                                <label for="mobile">Mobile</label>
+                            </li>
 
-                        </div>
+
+
+
+                        </ul>
                     </fieldset>
-
                     <fieldset class="nbarticles">
-                        <legend>Choisis le nombre d'articles par page</legend>
-                        <div>
+                        <div class="mb-3">
                             <label for="nbarticles">Nombre d'articles par page</label>
                             <select name="nbarticles">
                                 <option value="5">5</option>
@@ -59,24 +65,23 @@ require('../controllers/settings-controller.php');
                             </select>
                         </div>
                         <fieldset class="themepicker">
-                        <div>
-                            <input type="checkbox" class="lightDark" id="lightDark" name="theme" value="" 
-                            <?php
-                                // check automatique en cas de cookie -->
-                                if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme']) && ($_COOKIE[$_SESSION['user']['nickname'] . 'theme'] == "dark")) {
-                                    echo 'checked';
-                                } else if (isset($_POST['theme']) && ($_POST['theme'] === 'dark')) {
-                                    echo 'checked';
-                                } else {
-                                    echo '';
-                                }
-                            ?>
-                            >
-                            <label for="lightDark" id="IDtheme"><img src="https://img.icons8.com/ios-filled/30/FFFFFF/sun--v1.png"/>/<img src="https://img.icons8.com/sf-regular-filled/30/FFFFFF/moon-symbol.png"/></label>
-                        </div>
-                    </fieldset>
-                        <div>
-                            <input type="submit" value="Enregistrer">
+                            <legend class="fs-5">Thème : </legend>
+                            <div>
+                                <input type="checkbox" class="lightDark" id="lightDark" name="theme" value="" <?php
+                                                                                                                // check automatique en cas de cookie -->
+                                                                                                                if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme']) && ($_COOKIE[$_SESSION['user']['nickname'] . 'theme'] == "dark")) {
+                                                                                                                    echo 'checked';
+                                                                                                                } else if (isset($_POST['theme']) && ($_POST['theme'] === 'dark')) {
+                                                                                                                    echo 'checked';
+                                                                                                                } else {
+                                                                                                                    echo '';
+                                                                                                                }
+                                                                                                                ?>>
+                                <label for="lightDark" id="IDtheme"><img src="https://img.icons8.com/ios-filled/30/FFFFFF/sun--v1.png" />/<img src="https://img.icons8.com/sf-regular-filled/30/FFFFFF/moon-symbol.png" /></label>
+                            </div>
+                        </fieldset>
+                        <div class="m-3">
+                            <input type="submit" value="Enregistrer" class="btn btn-outline-light">
                         </div>
                     </fieldset>
                 </form>
