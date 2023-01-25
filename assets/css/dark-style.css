@@ -46,6 +46,17 @@ div h5 img {
 .modal-header {
     padding-bottom: 0;
     padding-top: 0;
+    background: black;
+    color: white;
+    border: none;
+}
+.modal-body {
+    background: black;
+    color: white;
+}
+.modal-footer {
+    background: black;
+    border: none;
 }
 p {
     text-align: justify;
