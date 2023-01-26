@@ -82,25 +82,20 @@ nav.navbar {
 header a.navbar-brand {
     width: 200px;
 }
-
 ul.dropdown-menu.show {
     background-color: rgba(105, 59, 131, 0.796);
 }
-
 a.dropdown-item {
     color: aliceblue !important;
 }
-
 a.dropdown-item:hover {
     color: aliceblue !important;
     background-color: rgba(80, 25, 117, 0.806) !important;
 }
-
 .navbar-brand {
     font-weight: bold;
     color: aliceblue;
 }
-
 nav button.btn {
     color: aliceblue !important;
     padding: 0;
