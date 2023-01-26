@@ -10,7 +10,7 @@ function checkProfil()
         </a>
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="parametres.php"><i class="bi bi-gear"></i> Paramètres</a></li>
-            <li><a class="dropdown-item" href="?logout" name="logout" ><i class="bi bi-x-circle"></i> Déconnexion/a></li>
+            <li><a class="dropdown-item" href="?logout" name="logout" ><i class="bi bi-x-circle"></i> Déconnexion</a></li>
         </ul>
         ';
     } else {

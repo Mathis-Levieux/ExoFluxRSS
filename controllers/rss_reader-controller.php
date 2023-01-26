@@ -131,7 +131,7 @@ function displayPreferencesArticles()
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="' . $first_word . '"><img src="' . $consoleimage . '" alt="logo">' . $Title . '</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <div class="modal-body p-0">
             <img class="img-fluid " src="' . $article['image'] . '" alt="photo article">
@@ -139,7 +139,7 @@ function displayPreferencesArticles()
             <p class="p-2">' . $article['description'] . '</p>
             </div>
             <div class="modal-footer">
-              <a href="' . $article['link'] . '" type="button" class="btn btn-primary">en savoir plus</a>
+              <a href="' . $article['link'] . '" type="button" class="btn btn-info"><i class="bi bi-three-dots"></i></a>
             </div>
           </div>
         </div>

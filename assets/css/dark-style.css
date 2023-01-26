@@ -24,6 +24,7 @@ main {
 /* CARD */
 .card {
     margin: auto !important;
+    margin-bottom: 1rem !important;
     padding: 0 !important;
     width: 90vw;
     background-color: rgba(0, 0, 0, 0.538);
@@ -71,8 +72,7 @@ div h5 img {
     background: black;
     border: none;
 }
-
-.btn-close {
+i.bi.bi-x-lg {
     color: white;
 }
 
@@ -169,6 +169,7 @@ input.lightDark {
   /* CAROUSEL */
   .carousel {
     margin-top: 5rem;
+    margin-bottom: 1rem;
   }
   .carousel-item img.d-block {
     filter: grayscale(90%);
