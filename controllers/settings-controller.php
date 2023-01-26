@@ -18,9 +18,9 @@ if (isset($_POST['theme'])) { // Si on détecte la méthode POST pour l'input "t
     $theme = 'light'; // Sinon, le thème sera par défaut "light"
 }
 
-if($_SERVER['REQUEST_METHOD']=="POST" && !isset($_POST['theme'])){
+if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['theme'])) {
     setcookie($_SESSION['user']['nickname'] . 'theme', 'light', time() + (86400 * 30), "/");
-    $theme = "light"; 
+    $theme = "light";
 }
 
 
@@ -34,7 +34,6 @@ if (isset($_POST['consolepref'])) { // Si on détecte la méthode POST pour l'in
 } elseif (isset($_COOKIE[$_SESSION['user']['nickname'] . 'consolepref'])) {
     // Récupération des choix stockés dans le cookie
     $consolepref = json_decode($_COOKIE[$_SESSION['user']['nickname'] . 'consolepref'], true);
-    
 }
 
 
@@ -50,5 +49,23 @@ if (isset($_POST['nbarticles'])) { // Si on détecte la méthode POST pour l'inp
 }
 
 
-$console_preferences = json_decode($_COOKIE[$_SESSION['user']['nickname'] . 'consolepref']); // On décode le cookie
+function checkUserConsolePreference($console)
+{
+    if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'consolepref'])) {
+        $console_preferences = json_decode($_COOKIE[$_SESSION['user']['nickname'] . 'consolepref']); // On décode le cookie
+        if (in_array($console, $console_preferences)) { // Si la console est dans le tableau
+            echo "checked";
+        }
+    }
+}
+
+function checkUserNbArticlePreference($nbarticle)
+{
+    if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles'])) {
+        $nbarticle_preference = $_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles']; // On décode le cookie
+        if ($nbarticle == $nbarticle_preference) { // Si le chiffre est le même
+            echo "selected";
+        }
+    }
+}
 

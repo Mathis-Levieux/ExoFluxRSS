@@ -33,21 +33,21 @@ require('../controllers/settings-controller.php');
                     <fieldset class="consolepicker">
                         <legend class="fs-5 mt-3">Préférences : </legend>
                         <ul>
-                            <div><input <?= in_array("ps4", $console_preferences) ? "checked" : "" ?> type="checkbox" id="ps4" name="consolepref[]" value="ps4">
+                            <div><input <?php checkUserConsolePreference("ps4") ?> type="checkbox" id="ps4" name="consolepref[]" value="ps4">
                                 <label for="ps4">PS4</label>
-                                <input <?= in_array("ps5", $console_preferences) ? "checked" : "" ?> type="checkbox" id="ps5" name="consolepref[]" value="ps5">
+                                <input <?php checkUserConsolePreference("ps5") ?> type="checkbox" id="ps5" name="consolepref[]" value="ps5">
                                 <label for="ps5">PS5</label>
                             </div>
                             <div>
-                                <input <?= in_array("xbox", $console_preferences) ? "checked" : "" ?> type="checkbox" id="xbox" name="consolepref[]" value="xbox">
+                                <input <?php checkUserConsolePreference("xbox") ?> type="checkbox" id="xbox" name="consolepref[]" value="xbox">
                                 <label for="xbox">Xbox</label>
-                                <input <?= in_array("switch", $console_preferences) ? "checked" : "" ?> type="checkbox" id="switch" name="consolepref[]" value="switch">
+                                <input <?php checkUserConsolePreference("switch") ?> type="checkbox" id="switch" name="consolepref[]" value="switch">
                                 <label for="switch">Switch</label>
                             </div>
                             <div>
-                                <input <?= in_array("pc", $console_preferences) ? "checked" : "" ?> type="checkbox" id="pc" name="consolepref[]" value="pc">
+                                <input <?php checkUserConsolePreference("pc") ?> type="checkbox" id="pc" name="consolepref[]" value="pc">
                                 <label for="pc">PC</label>
-                                <input <?= in_array("mobile", $console_preferences) ? "checked" : "" ?> type="checkbox" id="mobile" name="consolepref[]" value="mobile">
+                                <input <?php checkUserConsolePreference("mobile") ?> type="checkbox" id="mobile" name="consolepref[]" value="mobile">
                                 <label for="mobile">Mobile</label>
                             </div>
                     </fieldset>
@@ -55,10 +55,10 @@ require('../controllers/settings-controller.php');
                         <div class="mb-3 mt-3">
                             <label for="nbarticles">Nombre d'articles par page</label>
                             <select name="nbarticles">
-                                <option <?= $_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles'] == 5 ? "selected" : "" ?> value="5">5</option>
-                                <option <?= $_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles'] == 10 ? "selected" : "" ?> value="10">10</option>
-                                <option <?= $_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles'] == 15 ? "selected" : "" ?> value="15">15</option>
-                                <option <?= $_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles'] == 20 ? "selected" : "" ?> value="20">20</option>
+                                <option <?php checkUserNbArticlePreference(5) ?> value="5">5</option>
+                                <option <?php checkUserNbArticlePreference(10) ?> value="10">10</option>
+                                <option <?php checkUserNbArticlePreference(15) ?> value="15">15</option>
+                                <option <?php checkUserNbArticlePreference(20) ?> value="20">20</option>
                             </select>
                         </div>
                         <fieldset class="themepicker">
