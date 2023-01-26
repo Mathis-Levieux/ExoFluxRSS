@@ -101,7 +101,8 @@ function displayPreferencesArticles()
         $date = date('d/m/Y', strtotime($date));
 
         // récupérer le premier mot de $item->title (id de la modal)
-        $first_word = explode(' ', $article['title'])[0];
+        $firstTwoWords = explode(' ', $article['title'])[0] . ' ' . explode(' ', $article['title'])[1];
+        $firstTwoWords = str_replace(' ', '', $firstTwoWords);
 
         // diviser le title en Title et subtitle
         $Title = explode(':', $article['title'])[0];
@@ -111,7 +112,7 @@ function displayPreferencesArticles()
         $console = $article['console'];
         $consoleimage = "assets/img/$console.png";
         echo '
-        <div class="card mb-3" data-bs-toggle="modal" data-bs-target="#' . $first_word . '">
+        <div class="card mb-3" data-bs-toggle="modal" data-bs-target="#' . $firstTwoWords . '">
             <img src="' . $article['image'] . '" class="card-img-top" alt="photo article">
             <div class="card-body">
                 <h5 class="card-title text-light mb-0"><img src="' . $consoleimage . '" alt="logo">
@@ -126,11 +127,11 @@ function displayPreferencesArticles()
             </div>
         </div>
 
-        <div class="modal fade" id="' . $first_word . '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="' . $firstTwoWords . '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog  modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="' . $first_word . '"><img src="' . $consoleimage . '" alt="logo">' . $Title . '</h1>
+              <h1 class="modal-title fs-5" id="' . $firstTwoWords . '"><img src="' . $consoleimage . '" alt="logo">' . $Title . '</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <div class="modal-body p-0">
@@ -196,8 +197,8 @@ function displayOnlyOnePage($console, $imgconsole)
         $date = $article['date'];
         $date = date('d/m/Y', strtotime($date));
 
-        // récupérer le premier mot de $item->title (id de la modal)
-        $first_word = explode(' ', $article['title'])[0];
+        $firstTwoWords = explode(' ', $article['title'])[0] . ' ' . explode(' ', $article['title'])[1];
+        $firstTwoWords = str_replace(' ', '', $firstTwoWords);
 
         // diviser le title en Title et subtitle
         $Title = explode(':', $article['title'])[0];
@@ -207,7 +208,7 @@ function displayOnlyOnePage($console, $imgconsole)
         $console = $article['console'];
         $consoleimage = "assets/img/$console.png";
         echo '
-        <div class="card mb-3" data-bs-toggle="modal" data-bs-target="#' . $first_word . '">
+        <div class="card mb-3" data-bs-toggle="modal" data-bs-target="#' . $firstTwoWords . '">
             <img src="' . $article['image'] . '" class="card-img-top" alt="photo article">
             <div class="card-body">
                 <h5 class="card-title text-light"><img src="' . $consoleimage . '" alt="logo">
@@ -222,11 +223,11 @@ function displayOnlyOnePage($console, $imgconsole)
             </div>
         </div>
 
-        <div class="modal fade" id="' . $first_word . '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="' . $firstTwoWords . '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog  modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="' . $first_word . '"><img src="' . $consoleimage . '" alt="logo">' . $Title . '</h1>
+              <h1 class="modal-title fs-5" id="' . $firstTwoWords . '"><img src="' . $consoleimage . '" alt="logo">' . $Title . '</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-0">
@@ -235,7 +236,7 @@ function displayOnlyOnePage($console, $imgconsole)
             <p class="p-2">' . $article['description'] . '</p>
             </div>
             <div class="modal-footer">
-              <a href="' . $article['link'] . '" type="button" class="btn btn-primary">en savoir plus</a>
+            <a href="' . $article['link'] . '" type="button" class="btn btn-info"><i class="bi bi-three-dots"></i></a>
             </div>
           </div>
         </div>
@@ -257,7 +258,7 @@ function getUserPage() // Affiche la page demandée par l'utilisateur
     } else if (isset($_GET['pc'])) {
         displayOnlyOnePage("pc", "pc");
     } else if (isset($_GET['xbox'])) {
-        displayOnlyOnePage("xbox", "xbox");
+        displayOnlyOnePage("xbox-series-x", "xbox");
     } else {
         displayPreferencesArticles();
     }
