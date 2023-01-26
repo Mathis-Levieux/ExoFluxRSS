@@ -48,6 +48,24 @@ if (isset($_POST['nbarticles'])) { // Si on détecte la méthode POST pour l'inp
     $nbarticles = $_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles']; // alors la variable prend pour valeur celle du cookie
 }
 
-if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'consolepref'])) { // Si le cookie existe
-    $console_preferences = json_decode($_COOKIE[$_SESSION['user']['nickname'] . 'consolepref']); // On décode le cookie
+
+function checkUserConsolePreference($console)
+{
+    if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'consolepref'])) {
+        $console_preferences = json_decode($_COOKIE[$_SESSION['user']['nickname'] . 'consolepref']); // On décode le cookie
+        if (in_array($console, $console_preferences)) { // Si la console est dans le tableau
+            echo "checked";
+        }
+    }
 }
+
+function checkUserNbArticlePreference($nbarticle)
+{
+    if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles'])) {
+        $nbarticle_preference = $_COOKIE[$_SESSION['user']['nickname'] . 'nbarticles']; // On décode le cookie
+        if ($nbarticle == $nbarticle_preference) { // Si le chiffre est le même
+            echo "selected";
+        }
+    }
+}
+
