@@ -15,6 +15,10 @@ body {
     padding: 0;
 }
 
+.row  {
+    --bs-gutter-x : 0 !important;
+}
+
 main {
     margin-top: 5rem !important;
     
@@ -129,6 +133,8 @@ nav.navbar.fixed-bottom a.navbar-brand{
 nav.navbar.fixed-bottom a img{
  height: 30px;
 }
+
+
 
 /* SETTINGS */
 input.lightDark {
