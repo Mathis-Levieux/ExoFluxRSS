@@ -25,6 +25,8 @@ require('../controllers/settings-controller.php');
         <div class="card text-center">
             <div class="card-header text-light h3">
                 Bonjour <span class="fw-bold"><?= $_SESSION['user']['nickname'] ?></span>
+                <a href="accueil.php" class="ms-3 btn"><img src="https://img.icons8.com/sf-regular-filled/30/FFFFFF/home-page.png"/></a>
+
             </div>
             <div class="card-body text-light">
                 <form action="" method="post">
@@ -82,7 +84,7 @@ require('../controllers/settings-controller.php');
                             </div>
                         </fieldset>
                         <div class="m-3">
-                            <input type="submit" value="Enregistrer" class="btn btn-outline-light">
+                        <button type="submit" value="Enregistrer" class="btn btn-outline-light">Enregistrer</button>
                         </div>
                     </fieldset>
                 </form>
