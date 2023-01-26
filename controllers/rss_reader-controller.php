@@ -288,8 +288,8 @@ function displayCarousel($array)
         <img src="' . $item['image'] . '" class="d-block w-100" alt="...">
             <div class="carousel-caption">
                 <a href="' . $item['link'] . '">
-                    <h1 class="fw-bold"><img src="assets/img/' . $item['console'] . '.png" alt="logo">' . $Title . '</h1>
-                    <p class="fw-bold fs-5">' . $subtitle . '</p>
+                    <h3 class="fw-bold"><img src="assets/img/' . $item['console'] . '.png" alt="logo">' . $Title . '</h3>
+                    <p class="fw-bold fs-6">' . $subtitle . '</p>
                 </a>
             </div>
     </div>';
@@ -300,8 +300,8 @@ function displayCarousel($array)
     <img src="' . $item['image'] . '" class="d-block w-100" alt="...">
             <div class="carousel-caption">
                 <a href="' . $item['link'] . '">
-                    <h1 class="fw-bold"><img src="assets/img/' . $item['console'] . '.png" alt="logo">' . $Title . '</h1>
-                    <p class="fw-bold fs-5">' . $subtitle . '</p>
+                    <h3 class="fw-bold"><img src="assets/img/' . $item['console'] . '.png" alt="logo">' . $Title . '</h3>
+                    <p class="fw-bold fs-6">' . $subtitle . '</p>
                 </a>
             </div>
     </div>';

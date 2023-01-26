@@ -94,6 +94,9 @@ header a.navbar-brand {
 ul.dropdown-menu.show {
     background-color: rgba(0, 0, 0, 0.806) !important;
 }
+.dropdown-toggle::after{
+    color: aliceblue !important;
+}
 a.dropdown-item {
     color: aliceblue !important;
 }
@@ -176,7 +179,7 @@ input.lightDark {
     margin-bottom: 1rem;
   }
   .carousel-item img.d-block {
-    filter: grayscale(90%);
+    filter: brightness(50%)
   }
   
   .carousel-caption a{

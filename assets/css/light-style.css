@@ -171,7 +171,9 @@ input.lightDark:checked {
     margin-bottom: 1rem;
   }
   .carousel-item img.d-block {
-    filter: grayscale(90%);
+    
+    filter: brightness(50%)
+
   }
   
   .carousel-caption a{
