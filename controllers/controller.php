@@ -9,8 +9,8 @@ function checkProfil()
             <img src="https://img.icons8.com/external-smashingstocks-glyph-smashing-stocks/40/FFFFFF/external-profile-web-smashingstocks-glyph-smashing-stocks.png"/>
         </a>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="parametres.php"><i class="bi bi-gear"></i> Settings</a></li>
-            <li><a class="dropdown-item" href="?logout" name="logout" ><i class="bi bi-x-circle"></i> Déconnection</a></li>
+            <li><a class="dropdown-item" href="parametres.php"><i class="bi bi-gear"></i> Paramètres</a></li>
+            <li><a class="dropdown-item" href="?logout" name="logout" ><i class="bi bi-x-circle"></i> Déconnexion/a></li>
         </ul>
         ';
     } else {

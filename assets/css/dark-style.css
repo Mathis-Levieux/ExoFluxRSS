@@ -71,6 +71,11 @@ div h5 img {
     background: black;
     border: none;
 }
+
+.btn-close {
+    color: white;
+}
+
 p {
     text-align: justify;
     text-justify: auto;
