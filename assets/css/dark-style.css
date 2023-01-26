@@ -87,7 +87,7 @@ nav.navbar  {
     background-color: rgba(0, 0, 0, 0.538);
     padding: 0;
 }
-a.navbar-brand {
+header a.navbar-brand {
     width: 200px;
 }
 
