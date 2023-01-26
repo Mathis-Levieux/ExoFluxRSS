@@ -21,10 +21,12 @@ require('../controllers/home-controller.php');
 </header>
 
 
-
+<div class="row justify-content-center data-masonry='{"percentPosition": true }'">
 <?php 
 getUserPage()
 ?>
+</div>
+
 
 
 <?php include('components/footer.php') ?>

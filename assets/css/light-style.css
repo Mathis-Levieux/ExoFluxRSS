@@ -11,9 +11,20 @@ body {
     background-attachment: fixed;
 }
 
+main {
+    margin-top: 5rem !important;
+    
+}
+
+.container, .row {
+    padding: 0;
+}
+
 /* CARD */
 .card {
-    margin: 1.5rem;
+    margin: auto !important;
+    padding: 0 !important;
+    width: 90vw;
     background-color: rgba(105, 59, 131, 0.538);
     border: 0;
     font-family: 'Nunito Sans', sans-serif;
@@ -34,6 +45,8 @@ a {
     padding-bottom: 0 !important;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    font-family: 'Nunito Sans', sans-serif;
+    
 }
 
 div h5 img {
@@ -154,10 +167,54 @@ input.lightDark:checked {
   }
 
   /* CAROUSEL */
+  .carousel {
+    margin-top: 5rem;
+  }
   .carousel-item img.d-block {
     filter: grayscale(90%);
   }
   
   .carousel-caption a{
     text-decoration: none !important;
+  }
+
+  /* 404 */
+ 
+  div.error404 .card-body{
+    font-family: 'Press Start 2P', cursive;
+
+  }
+
+  /* MEDIA QUERIES DESKTOP */
+  @media only screen and (min-width : 601px){
+    
+    main, .row {
+        margin-top: 5rem !important;
+
+    }
+    .card {
+        width: 500px !important;
+        
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+        padding: 0 !important;
+    }
+
+    img.card-img-top {
+        height: 300px !important;
+        object-fit: cover;
+    }
+
+    .carousel {
+        display: none;
+
+    }
+
+    .carousel-item img.d-block {
+        filter: grayscale(90%);
+        object-fit: cover;
+        object-position: center;
+        height: 300px;
+      }
+   
   }
