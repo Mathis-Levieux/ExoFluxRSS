@@ -17,10 +17,10 @@ if (isset($_SESSION['user'])) {
     if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme'])) {
         $theme = $_COOKIE[$_SESSION['user']['nickname'] . 'theme'];
     } else {
-        $theme = 'light';
+        $theme = 'dark';
     }
 } else {
-    $theme = 'light';
+    $theme = 'dark';
 }
 
 

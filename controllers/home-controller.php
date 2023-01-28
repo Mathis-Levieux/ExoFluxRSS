@@ -8,10 +8,10 @@ if (isset($_SESSION['user'])) {
   if (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme'])) {
       $theme = $_COOKIE[$_SESSION['user']['nickname'] . 'theme'];
   } else {
-      $theme = 'light';
+      $theme = 'dark';
   }
 } else {
-  $theme = 'light';
+  $theme = 'dark';
 }
 
 function rss_reader($rss_feed, $console) // Fonction qui prend en paramètre l'URL du flux RSS et l'image de la console

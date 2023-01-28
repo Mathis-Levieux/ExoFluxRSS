@@ -15,12 +15,12 @@ if (isset($_POST['theme'])) { // Si on détecte la méthode POST pour l'input "t
 } elseif (isset($_COOKIE[$_SESSION['user']['nickname'] . 'theme'])) { // Sinon, si le cookie existe déjà
     $theme = $_COOKIE[$_SESSION['user']['nickname'] . 'theme']; // alors la variable prend pour valeur celle du cookie
 } else {
-    $theme = 'light'; // Sinon, le thème sera par défaut "light"
+    $theme = 'dark'; // Sinon, le thème sera par défaut "light"
 }
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['theme'])) {
-    setcookie($_SESSION['user']['nickname'] . 'theme', 'light', time() + (86400 * 30), "/");
-    $theme = "light";
+    setcookie($_SESSION['user']['nickname'] . 'theme', 'dark', time() + (86400 * 30), "/");
+    $theme = "dark";
 }
 
 
